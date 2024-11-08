@@ -306,10 +306,10 @@ Syntax: RESIDENT [ADD|REMOVE [drive:]filename [/F/NE/NH/O:xxxx/B:xxx/N:NAME/T:TY
 | /F          | Force the load without confirm    |
 | /NE         | Load only if not already resident |
 | /NH         | Do not write the header           |
-| /O          | Specify an offset                 |
-| /B          | Specify a bank                    |
-| /N          | Speficy a name                    |
-| /T          | Speficy a type                    |
+| /O:         | Specify an offset                 |
+| /B:         | Specify a bank                    |
+| /N:         | Speficy a name                    |
+| /T:         | Speficy a type                    |
 
 
 This command will load any file you specify on a REU bank, or, without any parameter, show the currently resident commands.
