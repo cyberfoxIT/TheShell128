@@ -340,3 +340,8 @@ This command will exit TheShell and reboot the computer, if /Y is specified, no 
 Syntax: LABEL drive: label
 
 This command will relabel a disk.
+
+## U36 ROM Loader
+If you want to warm boot directly to TheShell when you power on you C128, you've to burn the provided ROM to a 27C256 eprom.
+The ROM contains a combined version of the loaded and wamboot, that will cold boot or warm boot to TheShell.
+
