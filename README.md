@@ -36,8 +36,8 @@ Once finished loading, you should find yourself in an MS-DOS like environment, w
 
 Here you can use one of the following internal commands:
 
- - PROMPT	Change the current prompt string;
- - VER	  	Show the current shell version;
+ - PROMPT       Change the current prompt string;
+ - VER          Show the current shell version;
  - DATE	  	Set or show the current date;
  - TIME	  	Set or show the current date;
  - BREAK	Set or show the break flag (used for interrupt batch files);
