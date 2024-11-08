@@ -22,6 +22,7 @@ This is an MS-DOS like command line interface for the Commodore 128 equipped wit
  - Can get, set or sync the internal clock with the one on the UltimateII cart;
  - Can go back to the shell once gone to basic;
  - Can use any bank of the REU;
+ - Can use a (provided) ROM to make it available on cold boot without any disk with an U2 cart
 
 ## What "TheShell128" can't do.
 Everything not listed in this document! :)
@@ -176,4 +177,131 @@ There's some system environment variables that are readonly.
 	COLS		Is the number of columns of the current display;
 	SPEED		Is the current cpu speed;
 	VMODE		Is the current video display (VDC or VIC);
-	
+
+
+## INTERNAL COMMANDS
+### PROMPT
+Syntax: PROMPT [string]
+
+This command is used to customize the prompt of the shell.
+The prompt will be se to the string passed as parameter, or to "$p$g" if no parameters.
+
+| Code        | Description                                             |
+|:------------|:--------------------------------------------------------|
+| $G          | Greater than synmbol '>'                                |
+| $L          | Less than symbol '<'                                    |
+| $P          | Current drive                                           |
+| $D          | Current date                                            |
+| $T          | Current time                                            |
+| $$          | $ symbol                                                |
+| $B          | | symbol on CBM charset                                 |
+| $Q          | Uqual symbol '='                                        |
+| $E          | ESCAPE character                                        |
+| $_          | CR character                                            |
+| $*          | Blank character                                         |
+| $H          | Backspace character                                     |
+| $v          | TheShell version                                        |
+### VER
+Syntax: VER
+
+Show the version of TheShell.
+
+### DATE
+Syntax: DATE [date]
+
+Show and set the current date (DD-MM-YYYY).
+If no parameters it will ask the current date, and if valid will set it.
+### TIME
+Syntax: TIME [time]
+
+Show and set the current time (HH:MM.SS).
+If no parameters it will ask the current date, and if valid will set it.
+### BREAK
+Syntax: BREAK [on|off]
+
+Show and set the current break flag.
+If this flag is on a batch can be interrupted with a CTRL+C or RUN/STOP key.
+### ECHO
+Syntax: ECHO [on|off]|string
+
+Show and set the current echo flag.
+If this flag is set the prompt will be shown and in a batch every executed row will be shown on screen.
+The echo command will show the string parameter.
+If you want to print a non printable character, just insert a 169 char and a 3 digit number corresponding to the ASCII code you want to show.
+If you want to show an empty row, just write ECHO.
+### COPY
+Syntax: COPY [drive:]sourcefile drive:[destinationfile][,filetype] [/NR/R/Q/MV]
+
+Copy files from a source disk to a destination disk.
+
+| Code        | Description        |
+|:------------|:-------------------|
+| /NR         | No replace         |
+| /R          | Replace            |
+| /Q          | Quiet              |
+| /MV         | Move file          |
+This command can accept wildcards.
+
+Examples:
+ - COPY 8:*,*
+ - COPY 9:TEST,P 10:TEST,S
+ - COPY 10:TEST,S 11:
+### SET
+Syntax: SET VARNAME=[VARVALUE]
+
+This command will set an environment variable.
+If no value is passed, the var is deleted.
+### IF
+Syntax: IF %VARNAME% ==|<>|<|>|NOT EXISTS|EXISTS COMMAND
+
+This command will execute the command if the condition is true.
+A space before and after the operator is needed.
+### HISTORY
+Syntax: HISTORY
+
+This command will show the last 10 commands.
+### CLS
+Syntax: CLS
+
+This command will clear the screen.
+### STATUS
+Syntax: STATUS drive:
+
+This command will show the status of the selected drive.
+### PAUSE
+Syntax: PAUSE
+
+This command will simply wait for a key pressed.
+### DEL
+Syntax: DEL [drive:]filename [/Y]
+
+This command will delete one or more files, if /Y is specified, no confirm will be asked.
+This command can accept wildcards.
+### TYPE
+Syntax: TYPE [drive:]filename
+
+This command will show the contents of a file.
+### RENAME
+Syntax: RENAME oldfilename newfilename
+
+This command will rename a file.
+### DIR
+Syntax: DIR [drive:][wildcard pattern] [/W/P]
+
+| Code        | Description        |
+|:------------|:-------------------|
+| /W          | Wide format        |
+| /P          | Paged format       |
+
+This command will show the directory of a disk according to the wildcard pattern if present.
+
+The /W is for a wide show of the directory.
+
+### CMD		 | Send a command to a drive;                                                     |
+### BASIC	         | Go to basic, for go back to the shell, simply write GOBACK, or "go" + SHIFT-B; |
+### VOL		 | Show the name of a disk;                                                       |
+### RESIDENT	 | Make an external command resident in REU;                                      |
+### ALIAS	         | Create an alias;                                                               |
+### WHY		 | Show an explanation for the last error code, if set;                           |
+### EXIT		 | Exit the Shell;                                                                |
+### LABEL	         |Rename a disk;                                                                  |
