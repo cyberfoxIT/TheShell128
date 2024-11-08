@@ -26,7 +26,7 @@ What "TheShell128" can do.
 What "TheShell128" can't do.
 Everything not listed in this document! :)
 
-How it work
+ - How it work
 The shell system disk is an autoboot disk, so you can simply insert it into the drive 8: and turn on the c128.
 The program "warmboot.prg" will be loaded and executed automatically, and if it find a previous installation on the REU,
 it will boot from there, otherwise will load the "loader.prg" for a cold boot.
@@ -90,27 +90,27 @@ In the same way you can copy all the sequential files by simply writing:
 If you want to use a special non printable char, you can print the char 169 followed by a 3 digit number indicating 
 the ascii code of the character you want to print.
 
-Local variables
+ - Local variables
 
-	In the shell, like the MSDOS, you can set a local variable using the SET command.
+In the shell, like the MSDOS, you can set a local variable using the SET command.
 
 	SET VARNAME=VARVALUE
 
-	If the value of the variable contains any space, all the parameter must be inside double quotes, so if you want to 
-	set a variable name "VarName" with a value of "Test value", you should write:
+If the value of the variable contains any space, all the parameter must be inside double quotes, so if you want to 
+set a variable name "VarName" with a value of "Test value", you should write:
 
 	SET "VarName=Test value"
 
-	If you want to refer to any defined variable you should specify a the variable name enclosed inside a '%', so for example,
-	if you want to copy the file defined in the variable "VarName" to the drive 9:, you should write:
+If you want to refer to any defined variable you should specify a the variable name enclosed inside a '%', so for example,
+if you want to copy the file defined in the variable "VarName" to the drive 9:, you should write:
 
 	COPY %VarName% 9:
 
-	If you want to clear a variable, you can write something like this:
+If you want to clear a variable, you can write something like this:
 
 	SET VarName=
 
-	There's some system environment variables that are readonly.
+There's some system environment variables that are readonly.
 	RC       	Is the return code of the last command;
 	CD			Is the current drive;
 	COLS		Is the number of columns of the current display;
