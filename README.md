@@ -353,5 +353,4 @@ If you power on or reset the C128 with TheShell loaded on the REU without pressi
 
 If you've an Ultimate II cart, you can, once loaded TheShell on the REU, save the REU content, and set the image just saved for preload.
 This will make TheShell available even after a cold boot.
-You c
-Now, once TheShell
+You could notice a small delay between the power on and the start of TheShell, this is because (I believe) the preloaded image of the REU take some times to be available.
