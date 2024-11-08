@@ -1,10 +1,9 @@
 # TheShell128
 
 A command line interface for the Commodore 128
-
 This is an MS-DOS like command line interface for the Commodore 128 equipped with at least a Commodore drive and a REU of at least 512K.
 
-What "TheShell128" can do.
+## What "TheShell128" can do.
  - Support for 10 aliases;
  - Support for local variables;
  - Support up to 4 drives;
@@ -23,10 +22,10 @@ What "TheShell128" can do.
  - Can go back to the shell once gone to basic;
  - Can use any bank of the REU;
 
-What "TheShell128" can't do.
+## What "TheShell128" can't do.
 Everything not listed in this document! :)
 
- - How it work
+## How it work
 The shell system disk is an autoboot disk, so you can simply insert it into the drive 8: and turn on the c128.
 The program "warmboot.prg" will be loaded and executed automatically, and if it find a previous installation on the REU,
 it will boot from there, otherwise will load the "loader.prg" for a cold boot.
@@ -90,7 +89,7 @@ In the same way you can copy all the sequential files by simply writing:
 If you want to use a special non printable char, you can print the char 169 followed by a 3 digit number indicating 
 the ascii code of the character you want to print.
 
- - Local variables
+## Local variables
 
 In the shell, like the MSDOS, you can set a local variable using the SET command.
 
