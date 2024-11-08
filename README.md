@@ -151,34 +151,6 @@ In the same way you can copy all the sequential files by simply writing:
 If you want to use a special non printable char, you can print the char 169 followed by a 3 digit number indicating 
 the ascii code of the character you want to print.
 
-## Local variables
-
-In the shell, like the MSDOS, you can set a local variable using the SET command.
-
-	SET VARNAME=VARVALUE
-
-If the value of the variable contains any space, all the parameter must be inside double quotes, so if you want to 
-set a variable name "VarName" with a value of "Test value", you should write:
-
-	SET "VarName=Test value"
-
-If you want to refer to any defined variable you should specify a the variable name enclosed inside a '%', so for example,
-if you want to copy the file defined in the variable "VarName" to the drive 9:, you should write:
-
-	COPY %VarName% 9:
-
-If you want to clear a variable, you can write something like this:
-
-	SET VarName=
-
-There's some system environment variables that are readonly.
-	RC       	Is the return code of the last command;
-	CD			Is the current drive;
-	COLS		Is the number of columns of the current display;
-	SPEED		Is the current cpu speed;
-	VMODE		Is the current video display (VDC or VIC);
-
-
 ## INTERNAL COMMANDS
 ### PROMPT
 Syntax: PROMPT [string]
@@ -250,7 +222,26 @@ Examples:
 Syntax: SET VARNAME=[VARVALUE]
 
 This command will set an environment variable.
-If no value is passed, the var is deleted.
+If the value of the variable contains any space, all the parameter must be inside double quotes, so if you want to 
+set a variable name "VarName" with a value of "Test value", you should write:
+
+	SET "VarName=Test value"
+
+If you want to refer to any defined variable you should specify a the variable name enclosed inside a '%', so for example,
+if you want to copy the file defined in the variable "VarName" to the drive 9:, you should write:
+
+	COPY %VarName% 9:
+
+If you want to clear a variable, you can write something like this:
+
+	SET VarName=
+
+There's some system environment variables that are readonly.
+	RC       	Is the return code of the last command;
+	CD			Is the current drive;
+	COLS		Is the number of columns of the current display;
+	SPEED		Is the current cpu speed;
+	VMODE		Is the current video display (VDC or VIC);
 ### IF
 Syntax: IF %VARNAME% ==|<>|<|>|NOT EXISTS|EXISTS COMMAND
 
@@ -294,14 +285,58 @@ Syntax: DIR [drive:][wildcard pattern] [/W/P]
 | /P          | Paged format       |
 
 This command will show the directory of a disk according to the wildcard pattern if present.
+### CMD
+Syntax: CMD drive: drivecommand
 
-The /W is for a wide show of the directory.
+This command is used to send a command to a drive.
+### BASIC
+Syntax: BASIC
 
-### CMD		 | Send a command to a drive;                                                     |
-### BASIC	         | Go to basic, for go back to the shell, simply write GOBACK, or "go" + SHIFT-B; |
-### VOL		 | Show the name of a disk;                                                       |
-### RESIDENT	 | Make an external command resident in REU;                                      |
-### ALIAS	         | Create an alias;                                                               |
-### WHY		 | Show an explanation for the last error code, if set;                           |
-### EXIT		 | Exit the Shell;                                                                |
-### LABEL	         |Rename a disk;                                                                  |
+This command will take the user to the basic prompt.
+If you want to goback to TheShell, simply write GOBACK or GO + ShiftB.
+### VOL
+Syntax: VOL [drive:]
+
+This command will show the label of the disk in the specified drive.
+### RESIDENT
+Syntax: RESIDENT [ADD|REMOVE [drive:]filename [/F/NE/NH/O:xxxx/B:xxx/N:NAME/T:TYPE]]
+
+| Code        | Description                       |
+|:------------|:----------------------------------|
+| /F          | Force the load without confirm    |
+| /NE         | Load only if not already resident |
+| /NH         | Do not write the header           |
+| /O          | Specify an offset                 |
+| /B          | Specify a bank                    |
+| /N          | Speficy a name                    |
+| /T          | Speficy a type                    |
+
+
+This command will load any file you specify on a REU bank, or, without any parameter, show the currently resident commands.
+When you load a file, if no bank is specified (/B:), TheShell will load the file on the first available bank within the wanted range (if specified in the autoconfig.cfg).
+
+If you try to make resident a pgm with the same name of an already resident one, if no /F is specified TheShell will ask you to confirm the overwrite of the bank.
+
+When TheShell load a file onto a bank, it will write a header on top of the bank, in order to make it recognizable by TheShell.
+This can be avoided specifying the /NH flag, but this will prevent TheShell to recognize it, so it will not be show in the list of resident files.
+
+The /NE flag is self explanatory, and it will load the file only if not already present.
+The /N: flag will specify the name under it will be recognized by TheShell.
+The /T: flag is usefull if you want to load a file that is not an executable one, for example the HELP command can use the HELP.HLP file resident on the REU.
+ 
+### ALIAS
+Syntax: ALIAS ALIAS=COMMAND
+
+This command make an alias for a command string.
+### WHY
+Syntax: WHY
+
+This command will show the last error code set by the last executed command.
+### EXIT
+Syntax: EXIT [/Y]
+
+This command will exit TheShell and reboot the computer, if /Y is specified, no confirmation will be asked.
+### LABEL
+Syntax: LABEL drive: label
+
+This command will relabel a disk.
