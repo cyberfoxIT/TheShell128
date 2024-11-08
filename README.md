@@ -34,33 +34,34 @@ The boot process by default will install the shell in the first 4 banks of the R
 Once finished loading, you should find yourself in an MS-DOS like environment, with a prompt and a cursor.
 
 Here you can use one of the following internal commands:
-
- - PROMPT       Change the current prompt string;
- - VER          Show the current shell version;
- - DATE	  	Set or show the current date;
- - TIME	  	Set or show the current date;
- - BREAK	Set or show the break flag (used for interrupt batch files);
- - ECHO	  	Show the current echo flag or show a string on the screen;
- - ECHO.	Show an empty line;
- - COPY  	Copy files from a drive to another;
- - SET		Set an environment variable;
- - IF 	  	Process a condition;
- - HISTORY	Show command history;
- - CLS		Clear the screen;
- - STATUS	Show the current status of a drive;
- - PAUSE	Make a pause and wait for a key;
- - DEL		Delete files (wildcard supported);
- - TYPE		Show the contents of a file;
- - RENAME	Rename a file (wildcard not supported);
- - DIR		Show the directory of a disk;
- - CMD		Send a command to a drive;
- - BASIC	Go to basic, for go back to the shell, simply write GOBACK, or "go" + SHIFT-B;
- - VOL		Show the name of a disk;
- - RESIDENT	Make an external command resident in REU;
- - ALIAS	Create an alias;
- - WHY		Show an explanation for the last error code, if set;
- - EXIT		Exit the Shell;
- - LABEL	Rename a disk;
+| Command        | Description |
+|:---------------|:-------------------------------------------------------------------------------|
+| PROMPT         | Change the current prompt string;                                              |
+| VER            | Show the current shell version;                                                |
+| DATE	  	 | Set or show the current date;                                                  |
+| TIME	  	 | Set or show the current date;                                                  |
+| BREAK	         | Set or show the break flag (used for interrupt batch files);                   |
+| ECHO	  	 | Show the current echo flag or show a string on the screen;                     |
+| ECHO.	         | Show an empty line;                                                            |
+| COPY  	 | Copy files from a drive to another;                                            |
+| SET		 | Set an environment variable;                                                   |
+| IF 	  	 | Process a condition;                                                           |
+| HISTORY	 | Show command history;                                                          |
+| CLS		 | Clear the screen;                                                              |
+| STATUS	 | Show the current status of a drive;                                            |
+| PAUSE	         | Make a pause and wait for a key;                                               |
+| DEL		 | Delete files (wildcard supported);                                             |
+| TYPE		 | Show the contents of a file;                                                   |
+| RENAME	 | Rename a file (wildcard not supported);                                        |
+| DIR		 | Show the directory of a disk;                                                  |
+| CMD		 | Send a command to a drive;                                                     |
+| BASIC	         | Go to basic, for go back to the shell, simply write GOBACK, or "go" + SHIFT-B; |
+| VOL		 | Show the name of a disk;                                                       |
+| RESIDENT	 | Make an external command resident in REU;                                      |
+| ALIAS	         | Create an alias;                                                               |
+| WHY		 | Show an explanation for the last error code, if set;                           |
+| EXIT		 | Exit the Shell;                                                                |
+| LABEL	         |Rename a disk;                                                                  |
 
 Anything that contains a blank must be enclosed inside double quotes, so for example, if you want to copy the file 
 named "Test file" from the drive 8: to drive 9:, you can write:
