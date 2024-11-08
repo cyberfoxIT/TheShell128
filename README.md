@@ -26,6 +26,42 @@ This is an MS-DOS like command line interface for the Commodore 128 equipped wit
 ## What "TheShell128" can't do.
 Everything not listed in this document! :)
 
+## Files on the disk
+| File           | Description                                             |
+|:---------------|:--------------------------------------------------------|
+| BASEXT.BIN     | Basic extension                                         |
+| MSGS.CFG       | Default English messages                                |
+| MSGS-IT.CFG    | Italian messages                                        |
+| HELP.HLP       | Online help                                             |
+| LOADER         | Cold boot loader                                        |
+| WARMBOOT       | Warm boot loader                                        |
+| CLB            | Batch files handler                                     |
+| CLI            | Command line interface                                  |
+| CLE            | External command handler                                |
+| CLP0           | Command processor                                       |
+| CLP1           | Command processor                                       |
+| ASK            | Ask for a string and set a variable                     |
+| BANNER         | Create a banner                                         |
+| CHOICE         | Wait for a key and set a variable                       |
+| CONFIG         | Configure various things and create AUTOCONFIG.CFG      |
+| DISKCOPY       | Disk copy utility                                       |
+| DXX            | D64/71/81 utility                                       |
+| EXAMPCPI       | Examine an MSDOS CPI files for font data                |
+| EXTRACTFONT    | Extract a font from a CPI file and save it              |
+| FORMAT         | Format disk utility                                     |
+| FUT            | File utility                                            |
+| HELP           | Help utility                                            |
+| MKBOOT         | Make a disk bootable                                    |
+| MSDIR          | Read an MSDOS disk directory                            |
+| MSVOL          | Show an MSDOS disk volume informations                  |
+| MSREAD         | Copy a file from an MSDOS disk to a CBM one             | 
+| MSWRITE        | Copy a file from a CBM disk to an MSDOS one             |
+| MSTYPE         | Show the contents of a file on an MSDOS disk            |
+| VIEWBANK       | Show the contents of a specified bank                   |
+| U2UT           | Ultimate II Cart utility                                |
+| U2XFR          | Ultimate II Cart transfer utility                       |
+| U2TELNET       | Ultimate II Cart ANSI telnet                            |
+
 ## How it work
 The shell system disk is an autoboot disk, so you can simply insert it into the drive 8: and turn on the c128. 
 The program "warmboot.prg" will be loaded and executed automatically, and if it find a previous installation on the REU,
@@ -34,6 +70,7 @@ The boot process by default will install the shell in the first 4 banks of the R
 
 In the beginning of a the cold boot process, TheShell will look for a SEQ file named "autoconfig.cfg".
 If found, it will be loaded and parsed for some customization properties.
+If you want to skip this file, press the Commodore key while booting.
 
 | Command        | Values     | Description                                             |
 |:---------------|:-----------|:--------------------------------------------------------|
@@ -48,6 +85,11 @@ If found, it will be loaded and parsed for some customization properties.
 | CLE            | 0-255      | This will set the bank for the CLE                      |
 | TMP            | 0-255      | This will set the bank for the TMP                      |
 | BANKS          | range      | This will set the banks the can be accessed by TheShell |
+(This customizations will be resumed on every warm boot.)
+
+After loaded all the files, it will look for a SEQ file named "autostart".
+This file, just like an autoexec.bat, is a simple batch command that will be executed if found.
+If you want to skip this file just press the Shift key while booting.
 
 Once finished loading, you should find yourself in an MS-DOS like environment, with a prompt and a cursor.
 
