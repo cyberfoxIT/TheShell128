@@ -72,19 +72,19 @@ In the beginning of a the cold boot process, TheShell will look for a SEQ file n
 If found, it will be loaded and parsed for some customization properties.
 If you want to skip this file, press the Commodore key while booting.
 
-| Command        | Values     | Description                                             |
-|:---------------|:-----------|:--------------------------------------------------------|
-| SPEED          | FAST, SLOW | This set the speed of the cpu                           |
-| VIDEOMODE      | VDC, VIC   | This set the video mode                                 |
-| COLUMNS        | 40, 80     | This set the video columns                              |
-| BORDER         | Color code | This will set the border color                          |
-| BACKGROUND     | Color code | This will set the background color                      |
-| TEXT           | Color code | This will set the text color                            |
-| CLI            | 0-255      | This will set the bank for the CLI                      |
-| CLP            | 0-255      | This will set the bank for the CLP                      |
-| CLE            | 0-255      | This will set the bank for the CLE                      |
-| TMP            | 0-255      | This will set the bank for the TMP                      |
-| BANKS          | range      | This will set the banks the can be accessed by TheShell |
+| Command        | Values          | Description                                             |
+|:---------------|:----------------|:--------------------------------------------------------|
+| SPEED          | FAST, SLOW      | This set the speed of the cpu                           |
+| VIDEOMODE      | VDC, VIC        | This set the video mode                                 |
+| COLUMNS        | 40, 80          | This set the video columns                              |
+| BORDER         | Color code      | This will set the border color                          |
+| BACKGROUND     | Color code      | This will set the background color                      |
+| TEXT           | Color code      | This will set the text color                            |
+| CLI            | 0-255           | This will set the bank for the CLI                      |
+| CLP            | 0-255           | This will set the bank for the CLP                      |
+| CLE            | 0-255           | This will set the bank for the CLE                      |
+| TMP            | 0-255           | This will set the bank for the TMP                      |
+| BANKS          | range           | This will set the banks the can be accessed by TheShell |
 (This customizations will be resumed on every warm boot.)
 
 After loaded all the files, it will look for a SEQ file named "autostart".
