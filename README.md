@@ -7,6 +7,7 @@ This is an MS-DOS like command line interface for the Commodore 128 equipped wit
  - Support for 10 aliases;
  - Support for local variables;
  - Support up to 4 drives;
+ - Can be localized;
  - Copy or delete files with wildcard support;
  - Rename files (no wildcard support);
  - Format, relabel or copy disk;
@@ -26,15 +27,32 @@ This is an MS-DOS like command line interface for the Commodore 128 equipped wit
 Everything not listed in this document! :)
 
 ## How it work
-The shell system disk is an autoboot disk, so you can simply insert it into the drive 8: and turn on the c128.
+The shell system disk is an autoboot disk, so you can simply insert it into the drive 8: and turn on the c128. 
 The program "warmboot.prg" will be loaded and executed automatically, and if it find a previous installation on the REU,
-it will boot from there, otherwise will load the "loader.prg" for a cold boot.
+it will resume from there, otherwise will load the "loader.prg" for a cold boot.
 The boot process by default will install the shell in the first 4 banks of the REU.
+
+In the beginning of a the cold boot process, TheShell will look for a SEQ file named "autoconfig.cfg".
+If found, it will be loaded and parsed for some customization properties.
+
+| Command        | Values     | Description                                             |
+|:---------------|:-----------|:--------------------------------------------------------|
+| SPEED          | FAST, SLOW | This set the speed of the cpu                           |
+| VIDEOMODE      | VDC, VIC   | This set the video mode                                 |
+| COLUMNS        | 40, 80     | This set the video columns                              |
+| BORDER         | Color code | This will set the border color                          |
+| BACKGROUND     | Color code | This will set the background color                      |
+| TEXT           | Color code | This will set the text color                            |
+| CLI            | 0-255      | This will set the bank for the CLI                      |
+| CLP            | 0-255      | This will set the bank for the CLP                      |
+| CLE            | 0-255      | This will set the bank for the CLE                      |
+| TMP            | 0-255      | This will set the bank for the TMP                      |
+| BANKS          | range      | This will set the banks the can be accessed by TheShell |
 
 Once finished loading, you should find yourself in an MS-DOS like environment, with a prompt and a cursor.
 
 Here you can use one of the following internal commands:
-| Command        | Description |
+| Command        | Description                                                                    |
 |:---------------|:-------------------------------------------------------------------------------|
 | PROMPT         | Change the current prompt string;                                              |
 | VER            | Show the current shell version;                                                |
