@@ -86,6 +86,7 @@ If you want to skip this file, press the Commodore key while booting.
 | CLE            | 0-255           | This will set the bank for the CLE                      |
 | TMP            | 0-255           | This will set the bank for the TMP                      |
 | BANKS          | range           | This will set the banks the can be accessed by TheShell |
+
 (This customizations will be resumed on every warm boot.)
 
 After loaded all the files, it will look for a SEQ file named "autostart".
@@ -173,6 +174,7 @@ The prompt will be se to the string passed as parameter, or to "$p$g" if no para
 | $*          | Blank character                                         |
 | $H          | Backspace character                                     |
 | $v          | TheShell version                                        |
+
 ### VER
 Syntax: VER
 
@@ -218,6 +220,7 @@ Examples:
  - COPY 8:*,*
  - COPY 9:TEST,P 10:TEST,S
  - COPY 10:TEST,S 11:
+ - 
 ### SET
 Syntax: SET VARNAME=[VARVALUE]
 
@@ -242,40 +245,49 @@ There's some system environment variables that are readonly.
 	COLS		Is the number of columns of the current display;
 	SPEED		Is the current cpu speed;
 	VMODE		Is the current video display (VDC or VIC);
+ 
 ### IF
 Syntax: IF %VARNAME% ==|<>|<|>|NOT EXISTS|EXISTS COMMAND
 
 This command will execute the command if the condition is true.
 A space before and after the operator is needed.
+
 ### HISTORY
 Syntax: HISTORY
 
 This command will show the last 10 commands.
+
 ### CLS
 Syntax: CLS
 
 This command will clear the screen.
+
 ### STATUS
 Syntax: STATUS drive:
 
 This command will show the status of the selected drive.
+
 ### PAUSE
 Syntax: PAUSE
 
 This command will simply wait for a key pressed.
+
 ### DEL
 Syntax: DEL [drive:]filename [/Y]
 
 This command will delete one or more files, if /Y is specified, no confirm will be asked.
 This command can accept wildcards.
+
 ### TYPE
 Syntax: TYPE [drive:]filename
 
 This command will show the contents of a file.
+
 ### RENAME
 Syntax: RENAME oldfilename newfilename
 
 This command will rename a file.
+
 ### DIR
 Syntax: DIR [drive:][wildcard pattern] [/W/P]
 
@@ -285,19 +297,23 @@ Syntax: DIR [drive:][wildcard pattern] [/W/P]
 | /P          | Paged format       |
 
 This command will show the directory of a disk according to the wildcard pattern if present.
+
 ### CMD
 Syntax: CMD drive: drivecommand
 
 This command is used to send a command to a drive.
+
 ### BASIC
 Syntax: BASIC
 
 This command will take the user to the basic prompt.
 If you want to goback to TheShell, simply write GOBACK or GO + ShiftB.
+
 ### VOL
 Syntax: VOL [drive:]
 
 This command will show the label of the disk in the specified drive.
+
 ### RESIDENT
 Syntax: RESIDENT [ADD|REMOVE [drive:]filename [/F/NE/NH/O:xxxx/B:xxx/N:NAME/T:TYPE]]
 
@@ -328,14 +344,17 @@ The /T: flag is usefull if you want to load a file that is not an executable one
 Syntax: ALIAS ALIAS=COMMAND
 
 This command make an alias for a command string.
+
 ### WHY
 Syntax: WHY
 
 This command will show the last error code set by the last executed command.
+
 ### EXIT
 Syntax: EXIT [/Y]
 
 This command will exit TheShell and reboot the computer, if /Y is specified, no confirmation will be asked.
+
 ### LABEL
 Syntax: LABEL drive: label
 
