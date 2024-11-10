@@ -217,7 +217,7 @@ Copy files from a source disk to a destination disk.
 This command can accept wildcards.
 
 Examples:
- - COPY 8:*,*
+ - COPY 8:\*,\*
  - COPY 9:TEST,P 10:TEST,S
  - COPY 10:TEST,S 11:
  - 
