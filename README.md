@@ -15,8 +15,8 @@ An MS-DOS like command line interface for the Commodore 128 equipped with at lea
  - Read directory and copy MS-DOS files with burst support to and from a CBM (no wildcard support, no subdirectories support and only with at least a 1571);
  - Can make an external command resident for the shell;
  - Can execute batch files;
- - Can mount or dismount on UltimateII cart;
- - Can get or put files to and from a remote host with a simple .js server;
+ - Can mount or dismount disk images on UltimateII cart;
+ - Can get or put files to a remote host with a simple .js server;
  - Can copy to and from UltimateII cart USB sticks/CBM peripheral;
  - Can get, set or sync the internal clock with the one on the UltimateII cart;
  - Can go back to the shell once gone to basic;
