@@ -1,8 +1,6 @@
 # TheShell128
 
-A command line interface for the Commodore 128.
-
-This is an MS-DOS like command line interface for the Commodore 128 equipped with at least a Commodore drive and a REU of at least 512K.
+An MS-DOS like command line interface for the Commodore 128 equipped with at least a Commodore drive and a REU of at least 256K.
 
 ## What "TheShell128" can do.
  - Support for 10 aliases;
