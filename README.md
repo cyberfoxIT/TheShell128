@@ -148,7 +148,7 @@ This command will show only the sequential files.
 In the same way you can copy all the sequential files by simply writing:
   COPY *,s 9:
 
-If you want to use a special non printable char, you can print the char 169 followed by a 3 digit number indicating 
+If you want to use a special non printable char, you can print the char $ followed by a 3 digit number indicating 
 the ascii code of the character you want to print.
 
 ## INTERNAL COMMANDS
@@ -350,8 +350,9 @@ Syntax: WHY
 This command will show the last error code set by the last executed command.
 
 ### EXIT
-Syntax: EXIT [/Y]
+Syntax: EXIT [/Y] [/D]
 
+The flag /D is for invalidate the current installation on the REU.
 This command will exit TheShell and reboot the computer, if /Y is specified, no confirmation will be asked.
 
 ### LABEL
