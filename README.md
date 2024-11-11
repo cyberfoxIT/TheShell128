@@ -3,6 +3,7 @@
 An MS-DOS like command line interface for the Commodore 128 equipped with at least a Commodore drive and a REU of at least 256K.
 
 ## What "TheShell128" can do.
+ - Support for REU up to 16MB;
  - Support for 10 aliases;
  - Support for local variables;
  - Support up to 4 drives;
