@@ -365,7 +365,7 @@ If you want to warm boot directly to TheShell when you power or reset on you C12
 The ROM contains a combined version of the loaded and wamboot, that will cold boot or warm boot to TheShell.
 
 Once the ROM is installed, you can:
- - Power on or reset the C128 while pressing a key from 1 to 4 (corresponding to drive 8 to 12) for a cold boot of TheShell from the selected drive.
+ - Power on or reset the C128 while pressing a key from 1 to 4 (corresponding to drive 8 to 11) for a cold boot of TheShell from the selected drive.
  - Power on or reset the C128 while pressing the shift key to prevent a warm boot to TheShell if present on the REU.
 
 If you power on or reset the C128 with TheShell loaded on the REU without pressing any of the above key, the ROM will take you directly to TheShell prompt, preserving all the aliases and vars.
