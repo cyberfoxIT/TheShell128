@@ -337,7 +337,9 @@ When TheShell load a file onto a bank, it will write a header on top of the bank
 This can be avoided specifying the /NH flag, but this will prevent TheShell to recognize it, so it will not be show in the list of resident files and could be overwritten by TheShell when looking for an available bank.
 
 The /NE flag is self explanatory, and it will load the file only if not already present.
+
 The /N: flag will specify the name under it will be recognized by TheShell.
+
 The /T: flag is usefull if you want to load a file that is not an executable one, for example the HELP command can use the HELP.HLP file resident on the REU.
  
 ### ALIAS
