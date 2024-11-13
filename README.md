@@ -334,7 +334,7 @@ When you load a file, if no bank is specified (/B:), TheShell will load the file
 If you try to make resident a pgm with the same name of an already resident one, if no /F is specified TheShell will ask you to confirm the overwrite of the bank.
 
 When TheShell load a file onto a bank, it will write a header on top of the bank, in order to make it recognizable by TheShell.
-This can be avoided specifying the /NH flag, but this will prevent TheShell to recognize it, so it will not be show in the list of resident files.
+This can be avoided specifying the /NH flag, but this will prevent TheShell to recognize it, so it will not be show in the list of resident files and could be overwritten by TheShell when looking for an available bank.
 
 The /NE flag is self explanatory, and it will load the file only if not already present.
 The /N: flag will specify the name under it will be recognized by TheShell.
