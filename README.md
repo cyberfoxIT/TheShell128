@@ -196,7 +196,7 @@ Syntax: BREAK [on|off]
 Show and set the current break flag.
 If this flag is on a batch can be interrupted with a CTRL+C or RUN/STOP key.
 ### ECHO
-Syntax: ECHO [on|off]|string
+Syntax: ECHO on|off|string
 
 Show and set the current echo flag.
 If this flag is set the prompt will be shown and in a batch every executed row will be shown on screen.
