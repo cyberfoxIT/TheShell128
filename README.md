@@ -1,6 +1,6 @@
 # TheShell128
 
-An MS-DOS like command line interface for the Commodore 128 equipped with at least a Commodore drive and a REU of at least 256K.
+An MS-DOS like command line interface for the Commodore 128 equipped with at least a Commodore drive and a REU of 256K.
 
 ## What "TheShell128" can do.
  - Support for REU up to 16MB;
@@ -240,8 +240,9 @@ If you want to clear a variable, you can write something like this:
 	SET VarName=
 
 There's some system environment variables that are readonly.
-	RC       	Is the return code of the last command;
-	CD			Is the current drive;
+
+ 	RC       	Is the return code of the last command;
+	CD		Is the current drive;
 	COLS		Is the number of columns of the current display;
 	SPEED		Is the current cpu speed;
 	VMODE		Is the current video display (VDC or VIC);
