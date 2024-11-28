@@ -44,6 +44,7 @@ Everything not listed in this document! :)
 | ASK            | Ask for a string and set a variable                     |
 | BANNER         | Create a banner                                         |
 | CHOICE         | Wait for a key and set a variable                       |
+| 64             | Load and run a C64 pgm                                  |
 | CONFIG         | Configure various things and create AUTOCONFIG.CFG      |
 | DISKCOPY       | Disk copy utility                                       |
 | DXX            | D64/71/81 utility                                       |
