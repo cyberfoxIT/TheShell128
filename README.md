@@ -373,7 +373,7 @@ This command will relabel a disk.
 
 ## U36 ROM Loader
 If you want to warm boot directly to TheShell when you power or reset on you C128, you've to burn the provided ROM to a 27C256 eprom.
-The ROM contains a combined version of the loaded and wamboot, that will cold boot or warm boot to TheShell.
+The ROM contains a combined version of the loader and wamboot, that will cold boot or warm boot to TheShell.
 
 Once the ROM is installed, you can:
  - Power on or reset the C128 while pressing a key from 1 to 4 (corresponding to drive 8 to 11) for a cold boot of TheShell from the selected drive.
