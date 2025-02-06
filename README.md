@@ -357,8 +357,11 @@ The /T: flag is usefull if you want to load a file that is not an executable one
 Syntax: ALIAS ALIAS=COMMAND
 
 This command make an alias for a command string.
+
 Keep in mind, that if the alias name or the command has a space inside, all the alias parameter must be enclosed inside double quotes.
+
 So, for example, if I want to set an alias name "This is an alias" for a command like "dir 8:*,s", I should write at the prompt:
+
 
 	alias "This is an alias=dir 8:*,s"
 
