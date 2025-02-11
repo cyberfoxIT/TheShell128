@@ -60,7 +60,6 @@ Everything not listed in this document! :)
 | EXAMPCPI       | Examine an MSDOS CPI files for font data                |
 | EXTRACTFONT    | Extract a font from a CPI file and save it              |
 | FORMAT         | Format disk utility                                     |
-| FUT            | File utility                                            |
 | HELP           | Help utility                                            |
 | MKBOOT         | Make a disk bootable                                    |
 | MSDIR          | Read an MSDOS disk directory                            |
