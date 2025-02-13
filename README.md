@@ -13,7 +13,7 @@ I'LL NOT BE RESPONSIBLE FOR ANY KIND OF DAMAGE THAT COULD BE CAUSED BY THIS PGM.
  - Can set/use CPU in fast or slow mode;
  - Support for fast/slow cpu;
  - Support for REU up to 16MB;
- - Support for 10 aliases;
+ - Support for aliases;
  - Support for local variables;
  - Support up to 4 drives;
  - Can be localized;
