@@ -378,7 +378,7 @@ Syntax: LABEL drive: label
 This command will relabel a disk.
 
 ## U36 ROM Loader
-If you want to warm boot directly to TheShell when you power or reset on you C128, you've to burn the provided ROM to a 27C256 eprom.
+If you want to warm boot directly to TheShell when you power or reset your C128, you've to burn the provided ROM to a 27C256 eprom.
 The ROM contains a combined version of the loader and wamboot, that will cold boot or warm boot to TheShell.
 
 Once the ROM is installed, you can:
