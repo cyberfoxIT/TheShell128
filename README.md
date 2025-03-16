@@ -512,33 +512,27 @@ The /Q is for prevent any output.
 Syntax: MSDIR drive [/P]
 
 This command is used to show the directory of an MSDOS disk.
-The /P will page the content.
-Only with a 1571/1581 drive.
-
+The /P will page the content.<BR>Only with a 1571/1581 drive.
 ### MSVOL
 Syntax: MSVOL drive
 
-This command is used to show the volume name of an MSDOS disk.
-Only with a 1571/1581 drive.
+This command is used to show the volume name of an MSDOS disk.<BR>Only with a 1571/1581 drive.
 
 ### MSREAD
 Syntax: MSREAD MSfilename CBMfilename
 
-This command will copy a file from an MSDOS disk to a CBM one.
-Only with a 1571/1581 drive.
+This command will copy a file from an MSDOS disk to a CBM one.<BR>Only with a 1571/1581 drive.
 
 ### MSWRITE
 Syntax: MSWRITE CBMfilename MSfilename
 
-This command will copy a file from a CBM disk to an MSDOS one.
-Only with a 1571/1581 drive.
+This command will copy a file from a CBM disk to an MSDOS one.<BR>Only with a 1571/1581 drive.
 
 ### MSTYPE
 Syntax: MSTYPE filename [/P]
 
 This command will show the contens of a file on an MSDOS disk.
-The /P will page the content.
-Only with a 1571/1581 drive.
+The /P will page the content.<BR>Only with a 1571/1581 drive.
 
 ### VIEWBANK
 Syntax: VIEWBANK bankId [start address]
