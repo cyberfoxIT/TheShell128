@@ -108,32 +108,32 @@ Once finished loading, you should find yourself in an MS-DOS like environment, w
 Here you can use one of the following internal commands:
 | Command              | Description                                                                    |
 |:-------------------------|:-------------------------------------------------------------------------------|
-| [PROMPT](PROMPT)         | Change the current prompt string;                                              |
-| [VER](VER)               | Show the current shell version;                                                |
-| [DATE](DATE)	  	   | Set or show the current date;                                                  |
-| [TIME](TIME)	  	   | Set or show the current date;                                                  |
-| [BREAK](BREAK)	   | Set or show the break flag (used for interrupt batch files);                   |
-| [ECHO](ECHO)	  	   | Show the current echo flag or show a string on the screen;                     |
-| [ECHO.](ECHO.)	   | Show an empty line;                                                            |
-| [COPY](COPY)  	   | Copy files from a drive to another;                                            |
-| [SET](SET)		   | Set an environment variable;                                                   |
-| [IF](IF) 	  	   | Process a condition;                                                           |
-| [HISTORY](HISTORY)       | Show command history;                                                          |
-| [CLS](CLS)		   | Clear the screen;                                                              |
-| [STATUS](STATUS)	   | Show the current status of a drive;                                            |
-| [PAUSE](PAUSE)	   | Make a pause and wait for a key;                                               |
-| [DEL](DEL)		   | Delete files (wildcard supported);                                             |
-| [TYPE](TYPE)		   | Show the contents of a file;                                                   |
-| [RENAME](RENAME)	   | Rename a file (wildcard not supported);                                        |
-| [DIR](DIR)		   | Show the directory of a disk;                                                  |
-| [CMD](CMD)		   | Send a command to a drive;                                                     |
-| [BASIC](BASIC)	   | Go to basic, for go back to the shell, simply write GOBACK, or "go" + SHIFT-B; |
-| [VOL](VOL)		   | Show the name of a disk;                                                       |
-| [RESIDENT](RESIDENT)     | Make an external command resident in REU;                                      |
-| [ALIAS](ALIAS)	   | Create an alias;                                                               |
-| [WHY](WHY)		   | Show an explanation for the last error code, if set;                           |
-| [EXIT](EXIT)		   | Exit the Shell;                                                                |
-| [LABEL](LABEL)	   | Rename a disk;                                                                 |
+| [PROMPT](#PROMPT)         | Change the current prompt string;                                              |
+| [VER](#VER)               | Show the current shell version;                                                |
+| [DATE](#DATE)	  	   | Set or show the current date;                                                  |
+| [TIME](#TIME)	  	   | Set or show the current date;                                                  |
+| [BREAK](#BREAK)	   | Set or show the break flag (used for interrupt batch files);                   |
+| [ECHO](#ECHO)	  	   | Show the current echo flag or show a string on the screen;                     |
+| [ECHO.](#ECHO.)	   | Show an empty line;                                                            |
+| [COPY](#COPY)  	   | Copy files from a drive to another;                                            |
+| [SET](#SET)		   | Set an environment variable;                                                   |
+| [IF](#IF) 	  	   | Process a condition;                                                           |
+| [HISTORY](#HISTORY)       | Show command history;                                                          |
+| [CLS](#CLS)		   | Clear the screen;                                                              |
+| [STATUS](#STATUS)	   | Show the current status of a drive;                                            |
+| [PAUSE](#PAUSE)	   | Make a pause and wait for a key;                                               |
+| [DEL](#DEL)		   | Delete files (wildcard supported);                                             |
+| [TYPE](#TYPE)		   | Show the contents of a file;                                                   |
+| [RENAME](#RENAME)	   | Rename a file (wildcard not supported);                                        |
+| [DIR](#DIR)		   | Show the directory of a disk;                                                  |
+| [CMD](#CMD)		   | Send a command to a drive;                                                     |
+| [BASIC](#BASIC)	   | Go to basic, for go back to the shell, simply write GOBACK, or "go" + SHIFT-B; |
+| [VOL](#VOL)		   | Show the name of a disk;                                                       |
+| [RESIDENT](#RESIDENT)     | Make an external command resident in REU;                                      |
+| [ALIAS](#ALIAS)	   | Create an alias;                                                               |
+| [WHY](#WHY)		   | Show an explanation for the last error code, if set;                           |
+| [EXIT](#EXIT)		   | Exit the Shell;                                                                |
+| [LABEL](#LABEL)	   | Rename a disk;                                                                 |
 
 Anything that contains a blank must be enclosed inside double quotes, so for example, if you want to copy the file 
 named "Test file" from the drive 8: to drive 9:, you can write:
