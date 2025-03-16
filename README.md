@@ -50,28 +50,28 @@ Everything not listed in this document! :)
 | CLE                        | External command handler                           |
 | CLP0                       | Command processor                                  |
 | CLP1                       | Command processor                                  |
-| [ASK](ASK)                 | Ask for a string and set a variable                |
-| [BANNER](BANNER)           | Create a banner                                    |
-| [CHOICE](CHOICE)           | Wait for a key and set a variable                  |
-| [64](64)                   | Load and run a C64 pgm                             |
-| [CONFIG](CONFIG)           | Configure various things and create AUTOCONFIG.CFG |
-| [DISKCOPY](DISKCOPY)       | Disk copy utility                                  |
-| [DXX](DXX)                 | D64/71/81 utility                                  |
-| [EXAMCPI](EXAMCPI)         | Examine an MSDOS CPI files for font data           |
-| [EXTRACTFONT](EXTRACTFONT) | Extract a font from a CPI file and save it         |
-| [FORMAT](FORMAT)           | Format disk utility                                |
-| [HELP](HELP)               | Help utility                                       |
-| [MKBOOT](MKBOOT)           | Make a disk bootable                               |
-| [MSDIR](MSDIR)             | Read an MSDOS disk directory                       |
-| [MSVOL](MSVOL)             | Show an MSDOS disk volume informations             |
-| [MSREAD](MSREAD)           | Copy a file from an MSDOS disk to a CBM one        | 
-| [MSWRITE](MSWRITE)         | Copy a file from a CBM disk to an MSDOS one        |
-| [MSTYPE](MSTYPE)           | Show the contents of a file on an MSDOS disk       |
-| [VIEWBANK](VIEWBANK)       | Show the contents of a specified bank              |
-| [U2UTILS](U2UTILS)         | Ultimate II Cart utility                           |
-| [U2XFR](U2XFR)             | Ultimate II Cart transfer utility                  |
-| [U2TELNET](U2TELNET)       | Ultimate II Cart ANSI telnet client                |
-| [U2FTP](U2FTP)             | Ultimate II Cart FTP client                        |
+| [ASK](#ASK)                 | Ask for a string and set a variable                |
+| [BANNER](#BANNER)           | Create a banner                                    |
+| [CHOICE](#CHOICE)           | Wait for a key and set a variable                  |
+| [64](#64)                   | Load and run a C64 pgm                             |
+| [CONFIG](#CONFIG)           | Configure various things and create AUTOCONFIG.CFG |
+| [DISKCOPY](#DISKCOPY)       | Disk copy utility                                  |
+| [DXX](#DXX)                 | D64/71/81 utility                                  |
+| [EXAMCPI](#EXAMCPI)         | Examine an MSDOS CPI files for font data           |
+| [EXTRACTFONT](#EXTRACTFONT) | Extract a font from a CPI file and save it         |
+| [FORMAT](#FORMAT)           | Format disk utility                                |
+| [HELP](#HELP)               | Help utility                                       |
+| [MKBOOT](#MKBOOT)           | Make a disk bootable                               |
+| [MSDIR](#MSDIR)             | Read an MSDOS disk directory                       |
+| [MSVOL](#MSVOL)             | Show an MSDOS disk volume informations             |
+| [MSREAD](#MSREAD)           | Copy a file from an MSDOS disk to a CBM one        | 
+| [MSWRITE](#MSWRITE)         | Copy a file from a CBM disk to an MSDOS one        |
+| [MSTYPE](#MSTYPE)           | Show the contents of a file on an MSDOS disk       |
+| [VIEWBANK](#VIEWBANK)       | Show the contents of a specified bank              |
+| [U2UTILS](#U2UTILS)         | Ultimate II Cart utility                           |
+| [U2XFR](#U2XFR)             | Ultimate II Cart transfer utility                  |
+| [U2TELNET](#U2TELNET)       | Ultimate II Cart ANSI telnet client                |
+| [U2FTP](#U2FTP)             | Ultimate II Cart FTP client                        |
 
 ## How it work
 The shell system disk is an autoboot disk, so you can simply insert it into the drive 8: and turn on the c128. 
