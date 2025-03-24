@@ -473,7 +473,7 @@ If the source is a disk drive the destination must be an image file.
 If the source is an image file the destination must be a disk drive.
 The image type is extracted from the image file name, so the must end with a .d64/.d71/.d81
 
-### EXAMPCPI
+### EXAMCPI
 Syntax: EXAMCPI cpifile
 
 This command is used to inspect an MSDOS CPI file for font data.
