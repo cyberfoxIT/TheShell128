@@ -138,26 +138,28 @@ Here you can use one of the following internal commands:
 Anything that contains a blank must be enclosed inside double quotes, so for example, if you want to copy the file 
 named "Test file" from the drive 8: to drive 9:, you can write:
 
-COPY "8:Test file" 9:
+	COPY "8:Test file" 9:
 
 Or you want to run a program on the current drive named "Test Program", you should write:
 
-"TEST PROGRAM"
+	"TEST PROGRAM"
 	  
 If a typed command is not recognized as an internal or resident one, the shell will try to load it from the current drive.
 
 You can specify the type of the file you're referring by adding:
- - P for PRG;
- - S for SEQ;
- - R for REL;
+ 
+ 	- P for PRG;
+ 	- S for SEQ;
+ 	- R for REL;
  
 so for example if you want to search on a disk for all the SEQUENTIAL files only, you can write something like:
 
-  DIR *,s
+  	DIR *,s
   
 This command will show only the sequential files.
 In the same way you can copy all the sequential files by simply writing:
-  COPY *,s 9:
+  
+  	COPY *,s 9:
 
 If you want to use a special non printable char, you can print the char $ followed by a 3 digit number indicating 
 the ascii code of the character you want to print.
@@ -231,10 +233,11 @@ Copy files from a source disk to a destination disk.
 This command can accept wildcards.
 
 Examples:
- - COPY 8:\*,\*
- - COPY 9:TEST,P 10:TEST,S
- - COPY 10:TEST,S 11:
- - 
+ 
+ 	COPY 8:\*,\*
+ 	COPY 9:TEST,P 10:TEST,S
+ 	COPY 10:TEST,S 11:
+ 
 
 ### SET
 Syntax: SET VARNAME=[VARVALUE]
@@ -414,24 +417,27 @@ This command will wait for a key and set the variable "varname" with the pressed
 Syntax: 64 [filename] [/CD][/NS]
 
 With this command you can run a C64 executable directly from the shell.
-If only a unit name is passed the first program on that unit will be executed, otherwise the specified one.
-So, for example:
-	64 10:
-	Will do a LOAD"*",10,1
-	64 9:TEST
-	Will do a LOAD"TEST",9,1
+If only a unit name is passed the first program on that unit will be executed, otherwise the specified one.<br>
+So, for example:<br>
 
-The flag /CD will software change the unit of the filename to the drive 8: .
-	64 10: /CD
-	Will software swap the drive 10: with the 8: and do a LOAD"*",8,1
-	64 9:TEST /CD
-	Will software swap the drive 9: with the 8: and do a LOAD"TEST",8,1
+	64 10:<br>
+	Will do a LOAD"*",10,1<br>
+	64 9:TEST<br>
+	Will do a LOAD"TEST",9,1<br>
+
+The flag /CD will software change the unit of the filename to the drive 8: .<br>
 	
-The flag /NS will not specify a secondary address on the load command.
-	64 10: /NS
-	Will do a LOAD"*",8
-	64 9:TEST /NS
-	Will do a LOAD"TEST",9
+ 	64 10: /CD<br>
+	Will software swap the drive 10: with the 8: and do a LOAD"*",8,1<br>
+	64 9:TEST /CD<br>
+	Will software swap the drive 9: with the 8: and do a LOAD"TEST",8,1<br>
+	
+The flag /NS will not specify a secondary address on the load command.<br>
+
+	64 10: /NS<br>
+	Will do a LOAD"*",8<br>
+	64 9:TEST /NS<br>
+	Will do a LOAD"TEST",9<br>
 
 ### CONFIG
 Syntax: CONFIG action option [/R]
