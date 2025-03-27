@@ -148,9 +148,9 @@ If a typed command is not recognized as an internal or resident one, the shell w
 
 You can specify the type of the file you're referring by adding:
  
- 	- P for PRG;
- 	- S for SEQ;
- 	- R for REL;
+ 	P for PRG;
+ 	S for SEQ;
+ 	R for REL;
  
 so for example if you want to search on a disk for all the SEQUENTIAL files only, you can write something like:
 
