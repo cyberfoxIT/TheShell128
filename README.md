@@ -557,25 +557,15 @@ Syntax: U2UTILS action [parameters]
 |Action          |Explanation                                       |
 |:---------------|:-------------------------------------------------|
 |ID              |Show the cart ID                                  |
-|DIR             |Show the directory of on the U2                   |
-|                |U2UTILS DIR /                                     |
-|                |U2UTILS DIR /USB0                                 |
-|CD              |Change the current directory on the U2            |
-|                |U2UTILS CD /USB0                                  |
-|COPY            |Copy from to and from U2/CBM.                     |
-|                |U2UTILS COPY 8:TEST.D64 /USB0                     |
-|                |U2UTILS COPY /USB0/TEST.D64 8:                    |
-|CREATE          |Create an image.                                  |
-|                |U2UTILS CREATE /USB0/TEST.D64                     |
-|DEL             |Delete a file on the U2                           |
-|                |U2UTILS DEL /USB0/TEST.D64                        |
-|MOUNT           |Mount an image on an U2 drive                     |
-|                |U2UTILS MOUNT 10: /USB0/TEST.D64                  |
-|UMOUNT          |Unmount an image from an U2 drive                 |
-|                |U2UTILS UMOUNT 10:                                |
+|DIR             |Show the directory of the U2<br>U2UTILS DIR /<br>U2UTILS DIR /USB0                                 |
+|CD              |Change the current directory on the U2<br>U2UTILS CD /USB0                                  |
+|COPY            |Copy from to and from U2/CBM.<br>U2UTILS COPY 8:TEST.D64 /USB0<br>U2UTILS COPY /USB0/TEST.D64 8:                    |
+|CREATE          |Create an image.<br>U2UTILS CREATE /USB0/TEST.D64                     |
+|DEL             |Delete a file on the U2<br>U2UTILS DEL /USB0/TEST.D64                        |
+|MOUNT           |Mount an image on an U2 drive<br>U2UTILS MOUNT 10: /USB0/TEST.D64                  |
+|UMOUNT          |Unmount an image from an U2 drive<br>U2UTILS UMOUNT 10:                                |
 |TIME GET        |Will show the current time on the U2              |
-|TIME SET        |Will set the current date/time on the U2          |
-|                |U2UTILS SET 2024/01/01 01:01:00                   |
+|TIME SET        |Will set the current date/time on the U2<br>U2UTILS SET 2024/01/01 01:01:00                   |
 |TIME SYNC       |Will sync the date and time with the one on the U2|
 |TIME SYNC DATE  |Will sync the date with the one on the U2         |
 |TIME SYNC TIME  |Will sync the time with the one on the U2         |
@@ -588,15 +578,10 @@ This command is used to transfer files from a pc using the ethernet interface of
 
 |Action          |Explanation                                          |
 |:---------------|:----------------------------------------------------| 
-|GET             |Copy a file from the pc to the CBM                   |
-|                |GET C:\TEMP\TEST.D64 /USB0                           |
-|                |GET C:\TEMP\TEST.D64 8:                              |
-|PUT             |Copy a file from the CBM to the PC                   |
-|                |PUT 8:TEST.D64 C:/TEMP/                              |
-|DXX             |Will directly write an image from a PC to a CBM drive|
-|                |DXX C:/TEMP/TEST.D64 8:                              |
-|DIR             |Will show the content of a remote directory on the PC|
-|                |DIR C:/TEMP                                          |
+|GET             |Copy a file from the pc to the CBM<br>GET C:\TEMP\TEST.D64 /USB0<br>GET C:\TEMP\TEST.D64 8:                              |
+|PUT             |Copy a file from the CBM to the PC<br>PUT 8:TEST.D64 C:/TEMP/                              |
+|DXX             |Will directly write an image from a PC to a CBM drive<br>DXX C:/TEMP/TEST.D64 8:                              |
+|DIR             |Will show the content of a remote directory on the PC<br>DIR C:/TEMP                                          |
 
 ### U2TELNET
 Syntax: U2TELNET hostname port [/VARLIST:varname^varvalue^varname^varvalue...][/ROWS:rows][/COLS:cols][/DEBUG][/Q]
