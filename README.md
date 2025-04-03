@@ -420,24 +420,24 @@ With this command you can run a C64 executable directly from the shell.
 If only a unit name is passed the first program on that unit will be executed, otherwise the specified one.<br>
 So, for example:<br>
 
-	64 10:<br>
-	Will do a LOAD"*",10,1<br>
-	64 9:TEST<br>
-	Will do a LOAD"TEST",9,1<br>
+	64 10:
+	Will do a LOAD"*",10,1
+	64 9:TEST
+	Will do a LOAD"TEST",9,1
 
 The flag /CD will software change the unit of the filename to the drive 8: .<br>
 	
- 	64 10: /CD<br>
-	Will software swap the drive 10: with the 8: and do a LOAD"*",8,1<br>
-	64 9:TEST /CD<br>
-	Will software swap the drive 9: with the 8: and do a LOAD"TEST",8,1<br>
+ 	64 10: /CD
+	Will software swap the drive 10: with the 8: and do a LOAD"*",8,1
+	64 9:TEST /CD
+	Will software swap the drive 9: with the 8: and do a LOAD"TEST",8,1
 	
 The flag /NS will not specify a secondary address on the load command.<br>
 
-	64 10: /NS<br>
-	Will do a LOAD"*",8<br>
-	64 9:TEST /NS<br>
-	Will do a LOAD"TEST",9<br>
+	64 10: /NS
+	Will do a LOAD"*",8
+	64 9:TEST /NS
+	Will do a LOAD"TEST",9
 
 ### CONFIG
 Syntax: CONFIG action option [/R]
