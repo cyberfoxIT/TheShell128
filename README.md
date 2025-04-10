@@ -359,6 +359,14 @@ The /NE flag is self explanatory, and it will load the file only if not already 
 The /N: flag will specify the name under it will be recognized by TheShell.
 
 The /T: flag is usefull if you want to load a file that is not an executable one, for example the HELP command can use the HELP.HLP file resident on the REU.
+
+For example to install the help file resident on the REU, you can use a batch file like this:
+
+	@ECHO OFF
+	RESIDENT ADD HELP
+	RESIDENT ADD HELP.HLP,S /T:S
+	ALIAS "HELP=HELP /B:%BANK%"
+	ECHO tYPE 'help' FOR HELP INDEX.
  
 ### ALIAS
 Syntax: ALIAS ALIAS=COMMAND
