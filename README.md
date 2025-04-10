@@ -366,7 +366,7 @@ For example to install the help file resident on the REU, you can use a batch fi
 	RESIDENT ADD HELP
 	RESIDENT ADD HELP.HLP,S /T:S
 	ALIAS "HELP=HELP /B:%BANK%"
-	ECHO tYPE 'help' FOR HELP INDEX.
+	ECHO Type 'help' for help index.
  
 ### ALIAS
 Syntax: ALIAS ALIAS=COMMAND
