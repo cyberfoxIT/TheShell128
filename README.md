@@ -362,11 +362,11 @@ The /T: flag is usefull if you want to load a file that is not an executable one
 
 For example to install the help file resident on the REU, you can use a batch file like this:
 
-	@ECHO OFF
-	RESIDENT ADD HELP
-	RESIDENT ADD HELP.HLP,S /T:S
-	ALIAS "HELP=HELP /B:%BANK%"
-	ECHO Type 'help' for help index.
+	@echo off
+	resident add help
+	resident add help.hlp,s /t:s
+ 	alias "help=help /b:%bank%"
+  	echo Type 'help' for help index.
  
 ### ALIAS
 Syntax: ALIAS ALIAS=COMMAND
