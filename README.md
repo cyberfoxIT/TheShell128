@@ -11,7 +11,6 @@ I'LL NOT BE RESPONSIBLE FOR ANY KIND OF DAMAGE THAT COULD BE CAUSED BY THIS PGM.
 ## What "TheShell128" can do.
  - Can use 40 cols on VIC or 40/80 cols on VDC;
  - Can set/use CPU in fast or slow mode;
- - Support for fast/slow cpu;
  - Support for REU up to 16MB;
  - Support for aliases;
  - Support for local variables;
