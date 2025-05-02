@@ -462,7 +462,7 @@ This command is used to configure various things.
 |BACKGROUND          |color code     |Will change the background color  |
 |BORDER              |color code     |Will change the border color      |
 |FONT                |font name      |Will load the font for the VDC display|
-|                    |               |Because of how the charset are organized, you can specify a range of chars to be loaded and where to load them in the VDC.<br>For example, if you want to load only the chars from 69 to 100 and load them on the vdc from the char 32, you write:<br>CONFIG FONT TEST.FNT 69-100 32    |
+|                    |               |Because of how the charset are organized, you can specify a range of chars to be loaded and where to load them in the VDC.<br>For example, if you want to load only the chars from 69 to 100 and load them on the vdc from the char 32, you write:<br>CONFIG FONT TEST.CHR 69-100 32    |
 |LANG                |msg file       |Will change the current defined messages|
 |CFG                 |SAVE           |Will save a configuration file    |
 |                    |LOAD           |Will load a configuration file    |
