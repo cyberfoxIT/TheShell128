@@ -40,7 +40,8 @@ Everything not listed in this document! :)
 |:---------------------------|:---------------------------------------------------|
 | BASEXT.BIN                 | Basic extension                                    |
 | MSGS.CFG                   | Default English messages                           |
-| MSGS-IT.CFG                | Italian messages                                   |
+| MSGS-IT.CFG                | Full English messages example (including external commands)|
+| MSGS-IT.CFG                | Full Italian messages example (including external commands)|
 | HELP.HLP                   | Online help                                        |
 | LOADER                     | Cold boot loader                                   |
 | WARMBOOT                   | Warm boot loader                                   |
@@ -72,6 +73,10 @@ Everything not listed in this document! :)
 | [U2TELNET](#U2TELNET)       | Ultimate II Cart ANSI telnet client                |
 | [U2FTP](#U2FTP)             | Ultimate II Cart FTP client                        |
 
+## Messages translations
+Every external command contains a fall back english label for every message it use, so if there's no translation for a specified message, an english message will be shown instead.<br>
+The messages used by TheShell (ence for the internal commands messages) does not has a fallback label, so they must be loaded at boot time.
+
 ## How it work
 The shell system disk is an autoboot disk, so you can simply insert it into the drive 8: and turn on the c128. 
 The program "warmboot.prg" will be loaded and executed automatically, and if it find a previous installation on the REU,
@@ -95,6 +100,11 @@ If you want to skip this file, press the Commodore key while booting.
 | CLE            | 0-255           | This will set the bank for the CLE                      |
 | TMP            | 0-255           | This will set the bank for the TMP                      |
 | BANKS          | range           | This will set the banks the can be accessed by TheShell<br>The format for this field is xxx-yyy, where xxx is the<br>lowest bank number and yyy is the highest bank number<br>that TheShell128 can use.<br>For example if you want TheShell128 to use only banks<br>from 10 to 40, you can simply specify BANKS=10-40|
+|COUNTRY	 | Country identifier | This will set the country identifier currently used.<br>Default value is EN|
+|DTFORMAT        | Date format        | This will set the date format for the country.<br>Default is mm/dd/yyyy|
+|DENY            | Deny option        | This will set the expected answer when asked for confirmations.<BR>Default Y|
+|ALLOW           | Allow option       | This will set the expected answer when asked for confirmations.<br>Default N|
+|CONFIRMALL      | All option       | This will set the expected answer when asked for confirmations.<br>Default A|
 
 (This customizations will be resumed on every warm boot.)
 
@@ -133,6 +143,10 @@ Here you can use one of the following internal commands:
 | [WHY](#WHY)		   | Show an explanation for the last error code, if set;                           |
 | [EXIT](#EXIT)		   | Exit the Shell;                                                                |
 | [LABEL](#LABEL)	   | Rename a disk;                                                                 |
+
+Because of the way the flag are handled, if you want to pass a parameter to a command that begin with the char '/' (like a flag), you've to double the char '/'.<br>So for example, if you want to call the command 'TEST' with a parameter like '/TEST/FILE' you should write something like:
+
+	TEST //TEST/FILE
 
 Anything that contains a blank must be enclosed inside double quotes, so for example, if you want to copy the file 
 named "Test file" from the drive 8: to drive 9:, you can write:
@@ -194,28 +208,28 @@ Show the version of TheShell.
 ### DATE
 Syntax: DATE [date]
 
-Show and set the current date (DD-MM-YYYY).
+Show and set the current date with the current date format.<br>
 If no parameters it will ask the current date, and if valid will set it.
 
 ### TIME
 Syntax: TIME [time]
 
-Show and set the current time (HH:MM.SS).
+Show and set the current time (HH:MM.SS).<br>
 If no parameters it will ask the current date, and if valid will set it.
 
 ### BREAK
 Syntax: BREAK [on|off]
 
-Show and set the current break flag.
-With this flag on the check for a RUNSTOP/CTRLC will be more sensitive.
+Show and set the current break flag.<br>
+With this flag on the check for a RUNSTOP/CTRLC will be more sensitive.<br>
+If this flag is on, an IRQ handler is installed, and you should be able to abort any operation and go back to TheShell by using the combination RUN/STOP + RESTORE.<br> This is not active when in basic.
 
 ### ECHO
 Syntax: ECHO on|off|string
 
-Show and set the current echo flag.
-If this flag is set the prompt will be shown and in a batch every executed row will be shown on screen.
-The echo command will show the string parameter.
-If you want to print a non printable character, just insert a $ char and a 3 digit number corresponding to the ASCII code you want to show.
+Show and set the current echo flag.<br>
+If this flag is set the prompt will be shown and in a batch every executed row will be shown on screen.<br>
+The echo command will show the "string" parameter, if you want to print a non printable character, just insert a $ char and a 3 digit number corresponding to the ASCII code you want to show.<br>
 If you want to show an empty row, just write ECHO.
 
 ### COPY
@@ -241,7 +255,7 @@ Examples:
 ### SET
 Syntax: SET VARNAME=[VARVALUE]
 
-This command will set an environment variable.
+This command will set an environment variable.<br>
 If the value of the variable contains any space, all the parameter must be inside double quotes, so if you want to 
 set a variable name "VarName" with a value of "Test value", you should write:
 
@@ -263,12 +277,18 @@ There's some system environment variables that are readonly.
 	COLS		Is the number of columns of the current display;
 	SPEED		Is the current cpu speed;
 	VMODE		Is the current video display (VDC or VIC);
+ 	COUNTRY         Is the current country code;
+  	DENY		Is the current Deny option;
+   	ALLOW		Is the current Allow option;
+    	CONFIRMALL	Is the current All confirm option;
  
 ### IF
 Syntax: IF %VARNAME% ==|<>|<|>|NOT EXISTS|EXISTS COMMAND
 
 This command will execute the command if the condition is true.
-A space before and after the operator is needed.
+No spaces before and after the operator is needed.
+
+	IF %RC%==00 ECHO OK
 
 ### HISTORY
 Syntax: HISTORY
@@ -293,7 +313,7 @@ This command will simply wait for a key pressed.
 ### DEL
 Syntax: DEL [drive:]filename [/Y]
 
-This command will delete one or more files, if /Y is specified, no confirm will be asked.
+This command will delete one or more files, if /Y is specified, no confirm will be asked.<br>
 This command can accept wildcards.
 
 ### TYPE
@@ -324,7 +344,7 @@ This command is used to send a command to a drive.
 ### BASIC
 Syntax: BASIC
 
-This command will take the user to the basic prompt.
+This command will take the user to the basic prompt.<br>
 If you want to goback to TheShell, simply write GOBACK or GO + ShiftB.
 
 ### VOL
@@ -346,13 +366,13 @@ Syntax: RESIDENT [ADD|REMOVE [drive:]filename [/F/NE/NH/O:xxxx/B:xxx/N:NAME/T:TY
 | /T:         | Speficy a type                    |
 
 
-This command will load any file you specify on a REU bank, or, without any parameter, show the currently resident commands.
-When you load a file, if no bank is specified (/B:), TheShell will load the file on the first available bank within the wanted range (if specified in the autoconfig.cfg).
+This command will load any file you specify on a REU bank, or, without any parameter, show the currently resident commands.<br>
+When you load a file, if no bank is specified (/B:), TheShell will load the file on the first available bank within the wanted range (if specified in the autoconfig.cfg).<br>
 
-If you try to make resident a pgm with the same name of an already resident one, if no /F is specified TheShell will ask you to confirm the overwrite of the bank.
+If you try to make resident a pgm with the same name of an already resident one, if no /F is specified TheShell will ask you to confirm the overwrite of the bank.<br>
 
-When TheShell load a file onto a bank, it will write a header on top of the bank, in order to make it recognizable by TheShell.
-This can be avoided specifying the /NH flag, but this will prevent TheShell to recognize it, so it will not be show in the list of resident files and could be overwritten by TheShell when looking for an available bank.
+When TheShell load a file onto a bank, it will write a header on top of the bank, in order to make it recognizable by TheShell.<br>
+This can be avoided specifying the /NH flag, but this will prevent TheShell to recognize it, so it will not be show in the list of resident files and could be overwritten by TheShell when looking for an available bank.<br>
 
 The /NE flag is self explanatory, and it will load the file only if not already present.
 
@@ -411,9 +431,9 @@ This command is used for ask the user for a value with a max length of "length" 
 ### BANNER
 Syntax BANNER "text" /CS:A|G
 
-This command will print on the screen the text received in input with the current font set for the VDC display.
-The option /CS will set the charset to use, A for alphanumeric and G for graphic.
-If you change the font with the "CONFIG" command the banner should reflect the loaded font.
+This command will print on the screen the text received in input with the current font set for the VDC display.<br>
+The option /CS will set the charset to use, A for alphanumeric and G for graphic.<br>
+If you change the font with the "CONFIG" command the banner should reflect the loaded font.<br>
 
 ### CHOICE
 Syntax: CHOICE varname
@@ -423,7 +443,7 @@ This command will wait for a key and set the variable "varname" with the pressed
 ### 64
 Syntax: 64 [filename] [/CD][/NS]
 
-With this command you can run a C64 executable directly from the shell.
+With this command you can run a C64 executable directly from the shell.<br>
 If only a unit name is passed the first program on that unit will be executed, otherwise the specified one.<br>
 So, for example:<br>
 
@@ -467,64 +487,66 @@ This command is used to configure various things.
 |                    |LOAD           |Will load a configuration file    |
 |DRIVES              |ADD            |You can add a drive with:<br>CONFIG DRIVES ADD 8: 15[4/7/8]1<br>Or you can write:<br>CONFIG DRIVES ADD AUTO<br>In this way TheShell will try to detect any new drive|
 |                    |REMOVE         |You can remove a drive with:<br>CONFIG DRIVES REMOVE 8:           |
+|LOCALE              |msg_file countrycode date_format confirm deny confirm_all|You can set the date format, a country identifier, and load the messages from a file.<br>You also set the expected answer for question like overwrite/delete files.<br>For example, for an english setup, I should write something like:<br>CONFIG LOCALE MSGS-EN.CFG EN MM/DD/YYYY Y N A<br>
 
 The flag /R is used only with the CFG SAVE for overwrite the config file if existing.
 
 ### DISKCOPY
 Syntax: DISKCOPY source destination
 
-This command will copy a disk from the source drive to the destination drive.
+This command will copy a disk from the source drive to the destination drive.<br>
 The drive type must be compatible, you can't copy a 1581 disk to a 1571 or 1541 drive.
 
 ### DXX
 Syntax: DXX source destination
 
-This command is used to create an image or a floppy disk.
-The source parameters can be an image file or a disk drive.
-If the source is a disk drive the destination must be an image file.
-If the source is an image file the destination must be a disk drive.
+This command is used to create an image or a floppy disk.<br>
+The source parameters can be an image file or a disk drive.<br>
+If the source is a disk drive the destination must be an image file.<br>
+If the source is an image file the destination must be a disk drive.<br>
 The image type is extracted from the image file name, so the must end with a .d64/.d71/.d81
 
 ### EXAMCPI
 Syntax: EXAMCPI cpifile
 
-This command is used to inspect an MSDOS CPI file for font data.
+This command is used to inspect an MSDOS CPI file for font data.<br>
 As far as I've seen there are more variants of this file, so if the CPI file is in the right format, you should see a list of the contained fonts, which can be extracted by the EXTRACTFONT command and used with the CONFIG FONT command.
 
 ### EXTRACTFONT
 Syntax: EXTRACTFONT cpifile codepage fontnumber
 
-This command is used for extract a specific font for a specific codepage from an MSDOS cpi file.
+This command is used for extract a specific font for a specific codepage from an MSDOS cpi file.<br>
 If the command find the codepage and the fontnumber in the cpi file, it will create a ".CHR" file with the specified font data.
 
 ### FORMAT
 Syntax: FORMAT drive [name] [id] [/SS][/NS][/Y][/Q][/S]
 
-This command is used for format a disk.
-If not specified the name and the id, they will be requested by the program.
-The /SS flag is used for format a single sided floppy on a 1571.
-The /NS flag is used to prevent the format to allocate the boot sectors, by default the sectors are reserved.
-The /Y flag is used to make the format starts immediately.
-The /Q flag is used to make a quick format that will clean only the allocation table.
-The /S flag is used to prevent the program to output anything on screen.
+This command is used for format a disk.<br>
+If not specified the name and the id, they will be requested by the program.<br>
+The /SS flag is used for format a single sided floppy on a 1571.<br>
+The /NS flag is used to prevent the format to allocate the boot sectors, by default the sectors are reserved.<br>
+The /Y flag is used to make the format starts immediately.<br>
+The /Q flag is used to make a quick format that will clean only the allocation table.<br>
+The /S flag is used to prevent the program to output anything on screen.<br>
 
 ### HELP
 Syntax: HELP string /B:bankId|/f:fileName
 
-This command will search the "string" in the specified bank or in the specified file.
+This command will search the "string" in the specified bank or in the specified file.<br>
 You can load the provided help file on a bank and than use it with this command to view it's contents.
 
 ### MKBOOT
 Syntax: MKBOOT drive [/Q]
 
-This command will make a disk autobootable for TheShell.
+This command will make a disk autobootable for TheShell.<br>
 The /Q is for prevent any output.
 
 ### MSDIR
 Syntax: MSDIR drive [/P]
 
-This command is used to show the directory of an MSDOS disk.
+This command is used to show the directory of an MSDOS disk.<br>
 The /P will page the content.<BR>Only with a 1571/1581 drive.
+
 ### MSVOL
 Syntax: MSVOL drive
 
@@ -549,13 +571,13 @@ The /P will page the content.<BR>Only with a 1571/1581 drive.
 ### VIEWBANK
 Syntax: VIEWBANK bankId [start address]
 
-This command will show the contents of a bank on the REU.
-If wanted it can start from a specified address.
-With 'n' you will jump to the next page.
-With 'p' you will jump to the previous page.
-With 'h' you will jump to the beginning of the bank.
-With 'g' you can jump to a specific address.
-With 'q' you will quit from the command.
+This command will show the contents of a bank on the REU.<br>
+If wanted it can start from a specified address.<br>
+With 'n' you will jump to the next page.<br>
+With 'p' you will jump to the previous page.<br>
+With 'h' you will jump to the beginning of the bank.<br>
+With 'g' you can jump to a specific address.<br>
+With 'q' you will quit from the command.<br>
 
 ### U2UTILS
 Syntax: U2UTILS action [parameters]
@@ -592,9 +614,9 @@ This command is used to transfer files from a pc using the ethernet interface of
 ### U2TELNET
 Syntax: U2TELNET hostname port [/VARLIST:varname^varvalue^varname^varvalue...][/ROWS:rows][/COLS:cols][/DEBUG][/Q]
 
-This is a simple telnet client, if specified a varlist, they will be sent to the server.
-The client will present itself as an ansi terminal.
-The /ROWS and /COLS will specify the rows and columns of the terminal, if not specifed the client will set it according to the current screen size.
+This is a simple telnet client, if specified a varlist, they will be sent to the server.<br>
+The client will present itself as an ansi terminal.<br>
+The /ROWS and /COLS will specify the rows and columns of the terminal, if not specifed the client will set it according to the current screen size.<br>
 The /DEBUG will print some debug informations that can be usefull in case of issues.
 
 ### U2FTP
@@ -603,15 +625,15 @@ Syntax: U2FTP hostname port [/Q]
 This is an FTP client.
 
 ## U36 ROM Loader
-If you want to warm boot directly to TheShell when you power or reset on you C128, you've to burn the provided ROM to a 27C256 eprom.
-The ROM contains a combined version of the loader and wamboot, that will cold boot or warm boot to TheShell.
+If you want to warm boot directly to TheShell when you power or reset on you C128, you've to burn the provided ROM to a 27C256 eprom.<br>
+The ROM contains a combined version of the loader and wamboot, that will cold boot or warm boot to TheShell.<br>
 
 Once the ROM is installed, you can:
  - Power on or reset the C128 while pressing a key from 1 to 4 (corresponding to drive 8 to 11) for a cold boot of TheShell from the selected drive.
  - Power on or reset the C128 while pressing the shift key to prevent a warm boot to TheShell if present on the REU.
 
-If you power on or reset the C128 with TheShell loaded on the REU without pressing any of the above key, the ROM will take you directly to TheShell prompt, preserving all the aliases and vars.
+If you power on or reset the C128 with TheShell loaded on the REU without pressing any of the above key, the ROM will take you directly to TheShell prompt, preserving all the aliases and vars.<br><br>
 
 If you've an Ultimate II cart, you can, once loaded TheShell on the REU, save the REU content, and set the image just saved for preload.
-This will make TheShell available even after a cold boot.
-You could notice a small delay between the power on and the start of TheShell, this is because (I believe) the preloaded image of the REU take some times to be available.
+This will make TheShell available even after a cold boot.<br>
+You could notice a small delay between the power on and the start of TheShell, this is because (I believe) the preloaded image of the REU take some times to be available.<br>
