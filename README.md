@@ -38,7 +38,6 @@ Everything not listed in this document! :)
 ## Files on the disk
 | File                       | Description                                        |
 |:---------------------------|:---------------------------------------------------|
-| BASEXT.BIN                 | Basic extension                                    |
 | MSGS.CFG                   | Default English messages                           |
 | MSGS-IT.CFG                | Full English messages example (including external commands)|
 | MSGS-IT.CFG                | Full Italian messages example (including external commands)|
