@@ -332,6 +332,7 @@ Syntax: DIR [drive:][wildcard pattern] [/W/P]
 |:------------|:-------------------|
 | /W          | Wide format        |
 | /P          | Paged format       |
+| /B          | Show sizes in bytes instead of blocks|
 
 This command will show the directory of a disk according to the wildcard pattern if present.
 
