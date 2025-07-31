@@ -112,6 +112,8 @@ After loaded all the files, it will look for a file named "autostart" following 
  - Look for a seq file called autostart,s on the REU (Only on warm start);<br>
  - Look for a seq file called autostart,s on the current drive (Only on cold start);<br>
 
+So, for example if you make a seq or a prg file resident with the name "autostart", it will be executed on every warm boot.
+
 This file, just like an autoexec.bat, is a simple batch file that will be executed if found.
 If you want to skip this file just press the Shift key while booting.
 
