@@ -107,8 +107,12 @@ If you want to skip this file, press the Commodore key while booting.
 
 (This customizations will be resumed on every warm boot.)
 
-After loaded all the files, it will look for a SEQ file named "autostart".
-This file, just like an autoexec.bat, is a simple batch command that will be executed if found.
+After loaded all the files, it will look for a SEQ file named "autostart" following this order:
+ - Look for a pgm file called autostart,p on the REU (Only on warm start);<br>
+ - Look for a seq file called autostart,s on the REU (Only on warm start);<br>
+ - Look for a seq file called autostart,s on the current drive (Only on cold start);<br>
+
+This file, just like an autoexec.bat, is a simple batch file that will be executed if found.
 If you want to skip this file just press the Shift key while booting.
 
 Once finished loading, you should find yourself in an MS-DOS like environment, with a prompt and a cursor.
