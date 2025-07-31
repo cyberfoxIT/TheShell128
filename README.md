@@ -107,7 +107,7 @@ If you want to skip this file, press the Commodore key while booting.
 
 (This customizations will be resumed on every warm boot.)
 
-After loaded all the files, it will look for a SEQ file named "autostart" following this order:
+After loaded all the files, it will look for a file named "autostart" following this order:
  - Look for a pgm file called autostart,p on the REU (Only on warm start);<br>
  - Look for a seq file called autostart,s on the REU (Only on warm start);<br>
  - Look for a seq file called autostart,s on the current drive (Only on cold start);<br>
