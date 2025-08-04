@@ -513,7 +513,9 @@ This command is used to configure various things.
 |                    |REMOVE         |You can remove a drive with:<br>CONFIG DRIVES REMOVE 8:           |
 |LOCALE              |msg_file countrycode date_format confirm deny confirm_all|You can set the date format, a country identifier, and load the messages from a file.<br>You also set the expected answer for question like overwrite/delete files.<br>For example, for an english setup, I should write something like:<br>CONFIG LOCALE MSGS-EN.CFG EN MM/DD/YYYY Y N A<br>
 
-The flag /R is used only with the CFG SAVE for overwrite the config file if existing.
+The flag /R is used only with
+ - the CFG SAVE for overwrite the config file if existing;
+ - the FONT LOAD for make reverse fonts;
 
 ### DISKCOPY
 Syntax: DISKCOPY source destination
