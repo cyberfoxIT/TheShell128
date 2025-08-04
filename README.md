@@ -182,6 +182,24 @@ In the same way you can copy all the sequential files by simply writing:
 If you want to use a special non printable char, you can print the char $ followed by a 3 digit number indicating 
 the ascii code of the character you want to print.
 
+## VDC Font customization
+You can customize the font of the VDC of the C128 by using the config command.<br>
+The idea is that you customize the font you're currently using with the portions of characters you want (ASCII is not PETSCII).<br>
+So, for example, you can customize the characters from 'A' to 'Z' and 'a' to 'z' with this command:<br>
+
+	EXTRACTFONT EGA.CPI 437 3
+	CONFIG FONT LOAD 437.3.CHR A 65-25 193
+ 	CONFIG FONT LOAD 437.3.CHR A 97-25 65
+ 
+This command extract the font from an MSDOS .cpi file, load the 25 characters definitions starting from the ASCII 65 from the file specified and use them for redefine the characters from PETSCII 193 on the Alphanumeric charset.<br>
+Once you're happy with the your customization, you can save the whole charsets in a file and load it when you need with something like this:<br>
+
+	CONFIG FONT SAVE CUSTOM.FONT
+	CONFIG FONT LOAD CUSTOM.FONT
+ 
+This command will replace you current charsets with the content of the font file.<br>
+If you name your customized font as "VDC.FONT", it will be loaded by the loader or the ROM boot (only 8x8 fonts), doing so it will be available even after a warm boot.<br>
+ 
 ## INTERNAL COMMANDS
 ### PROMPT
 Syntax: PROMPT [string]
@@ -487,7 +505,7 @@ This command is used to configure various things.
 |COLOR               |color code &nbsp;&nbsp;&nbsp;&nbsp;|Will change the current text color|
 |BACKGROUND          |color code     |Will change the background color  |
 |BORDER              |color code     |Will change the border color      |
-|FONT                |font name      |Will load the font for the VDC display<br>Because of how the charset are organized, you can specify a range of chars to be loaded and where to load them in the VDC.<br>For example, if you want to load only the chars from 69 to 100 and load them on the vdc from the char 32, you write:<br>CONFIG FONT TEST.CHR 69-100 32    |
+|FONT                |LOAD/SAVE font name |Will load the font for the VDC display<br>Because of how the charset are organized, you can specify a range of chars to be loaded and where to load them in the VDC.<br>For example, if you want to load only the chars from 69 to 100 and load them on the vdc from the char 32, you write:<br>CONFIG FONT LOAD TEST.CHR 69-100 32    |
 |LANG                |msg file       |Will change the current defined messages|
 |CFG                 |SAVE           |Will save a configuration file    |
 |                    |LOAD           |Will load a configuration file    |
