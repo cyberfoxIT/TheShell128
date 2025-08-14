@@ -296,19 +296,21 @@ If you want to clear a variable, you can write something like this:
 There's some system environment variables that are readonly.
 
  	RC       	Is the return code of the last command;
-	CD		Is the current drive;
+	CD			Is the current drive;
 	COLS		Is the number of columns of the current display;
 	SPEED		Is the current cpu speed;
 	VMODE		Is the current video display (VDC or VIC);
- 	COUNTRY         Is the current country code;
+ 	COUNTRY 	Is the current country code;
   	DENY		Is the current Deny option;
    	ALLOW		Is the current Allow option;
-    	CONFIRMALL	Is the current All confirm option;
- 
+    CONFIRMALL	Is the current All confirm option;
+
+With no parameters, it will show all the defined variabiles.
+
 ### IF
 Syntax: IF %VARNAME% ==|<>|<|>|NOT EXISTS|EXISTS COMMAND
 
-This command will execute the command if the condition is true.
+This command will execute the command if the condition is true.<br>
 No spaces before and after the operator is needed.
 
 	IF %RC%==00 ECHO OK
