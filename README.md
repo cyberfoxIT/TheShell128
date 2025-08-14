@@ -49,10 +49,10 @@ Everything not listed in this document! :)
 | CLE                        | External command handler                           |
 | CLP0                       | Command processor                                  |
 | CLP1                       | Command processor                                  |
+| [64](#64)                   | Load and run a C64 pgm                             |
 | [ASK](#ASK)                 | Ask for a string and set a variable                |
 | [BANNER](#BANNER)           | Create a banner                                    |
 | [CHOICE](#CHOICE)           | Wait for a key and set a variable                  |
-| [64](#64)                   | Load and run a C64 pgm                             |
 | [CONFIG](#CONFIG)           | Configure various things and create AUTOCONFIG.CFG |
 | [DISKCOPY](#DISKCOPY)       | Disk copy utility                                  |
 | [DXX](#DXX)                 | D64/71/81 utility                                  |
@@ -122,32 +122,32 @@ Once finished loading, you should find yourself in an MS-DOS like environment, w
 Here you can use one of the following internal commands:
 | Command              | Description                                                                    |
 |:-------------------------|:-------------------------------------------------------------------------------|
-| [PROMPT](#PROMPT)         | Change the current prompt string;                                              |
-| [VER](#VER)               | Show the current shell version;                                                |
-| [DATE](#DATE)	  	   | Set or show the current date;                                                  |
-| [TIME](#TIME)	  	   | Set or show the current date;                                                  |
+| [ALIAS](#ALIAS)	   | Create an alias;                                                               |
+| [BASIC](#BASIC)	   | Go to basic, for go back to the shell, simply write GOBACK, or "go" + SHIFT-B; |
 | [BREAK](#BREAK)	   | Set or show the break flag (used for interrupt batch files);                   |
+| [CLS](#CLS)		   | Clear the screen;                                                              |
+| [CMD](#CMD)		   | Send a command to a drive;                                                     |
+| [COPY](#COPY)  	   | Copy files from a drive to another;                                            |
+| [DATE](#DATE)	  	   | Set or show the current date;                                                  |
+| [DIR](#DIR)		   | Show the directory of a disk;                                                  |
+| [DEL](#DEL)		   | Delete files (wildcard supported);                                             |
 | [ECHO](#ECHO)	  	   | Show the current echo flag or show a string on the screen;                     |
 | [ECHO.](#ECHO.)	   | Show an empty line;                                                            |
-| [COPY](#COPY)  	   | Copy files from a drive to another;                                            |
-| [SET](#SET)		   | Set an environment variable;                                                   |
-| [IF](#IF) 	  	   | Process a condition;                                                           |
-| [HISTORY](#HISTORY)       | Show command history;                                                          |
-| [CLS](#CLS)		   | Clear the screen;                                                              |
-| [STATUS](#STATUS)	   | Show the current status of a drive;                                            |
-| [PAUSE](#PAUSE)	   | Make a pause and wait for a key;                                               |
-| [DEL](#DEL)		   | Delete files (wildcard supported);                                             |
-| [TYPE](#TYPE)		   | Show the contents of a file;                                                   |
-| [RENAME](#RENAME)	   | Rename a file (wildcard not supported);                                        |
-| [DIR](#DIR)		   | Show the directory of a disk;                                                  |
-| [CMD](#CMD)		   | Send a command to a drive;                                                     |
-| [BASIC](#BASIC)	   | Go to basic, for go back to the shell, simply write GOBACK, or "go" + SHIFT-B; |
-| [VOL](#VOL)		   | Show the name of a disk;                                                       |
-| [RESIDENT](#RESIDENT)     | Make an external command resident in REU;                                      |
-| [ALIAS](#ALIAS)	   | Create an alias;                                                               |
-| [WHY](#WHY)		   | Show an explanation for the last error code, if set;                           |
 | [EXIT](#EXIT)		   | Exit the Shell;                                                                |
+| [HISTORY](#HISTORY)       | Show command history;                                                          |
+| [IF](#IF) 	  	   | Process a condition;                                                           |
 | [LABEL](#LABEL)	   | Rename a disk;                                                                 |
+| [PAUSE](#PAUSE)	   | Make a pause and wait for a key;                                               |
+| [PROMPT](#PROMPT)         | Change the current prompt string;                                              |
+| [RENAME](#RENAME)	   | Rename a file (wildcard not supported);                                        |
+| [RESIDENT](#RESIDENT)     | Make an external command resident in REU;                                      |
+| [SET](#SET)		   | Set an environment variable;                                                   |
+| [STATUS](#STATUS)	   | Show the current status of a drive;                                            |
+| [TIME](#TIME)	  	   | Set or show the current date;                                                  |
+| [TYPE](#TYPE)		   | Show the contents of a file;                                                   |
+| [VER](#VER)               | Show the current shell version;                                                |
+| [VOL](#VOL)		   | Show the name of a disk;                                                       |
+| [WHY](#WHY)		   | Show an explanation for the last error code, if set;                           |
 
 Because of the way the flag are handled, if you want to pass a parameter to a command that begin with the char '/' (like a flag), you've to double the char '/'.<br>So for example, if you want to call the command 'TEST' with a parameter like '/TEST/FILE' you should write something like:
 
@@ -201,6 +201,127 @@ This command will replace you current charsets with the content of the font file
 If you name your customized font as "VDC.FONT", it will be loaded by the loader or the ROM boot (only 8x8 fonts), doing so it will be available even after a warm boot.<br>
  
 ## INTERNAL COMMANDS
+### ALIAS
+Syntax: ALIAS ALIAS=COMMAND
+
+This command make an alias for a command string.  
+Keep in mind, that if the alias name or the command has a space inside, all the alias parameter must be enclosed inside double quotes.  
+So, for example, if I want to set an alias named "This is an alias" for a command like "dir 8:*,s", I should write at the prompt:
+
+	alias "This is an alias=dir 8:*,s"
+
+You can also write:
+
+	alias "pdir=dir /p"
+	alias "wdir=pdir /w"
+	alias wpdir=wdir
+	
+and then for example at the prompt with "wpdir 8:", you should see a wide paged directory listing of the drive 8:.
+
+### BASIC
+Syntax: BASIC
+
+This command will take the user to the basic prompt.<br>
+If you want to goback to TheShell, simply write GOBACK or GO + ShiftB.
+
+### BREAK
+Syntax: BREAK [on|off]
+
+Show and set the current break flag.<br>
+With this flag on the check for a RUNSTOP/CTRLC will be more sensitive.<br>
+If this flag is on, an IRQ handler is installed, and you should be able to abort any operation and go back to TheShell by using the combination RUN/STOP + RESTORE.<br> This is not active when in basic.
+
+### CLS
+Syntax: CLS
+
+This command will clear the screen.
+
+### CMD
+Syntax: CMD drive: drivecommand
+
+This command is used to send a command to a drive.
+
+### COPY
+Syntax: COPY [drive:]sourcefile drive:[destinationfile][,filetype] [/NR/R/Q/MV]
+
+Copy files from a source disk to a destination disk.
+
+| Code        | Description        |
+|:------------|:-------------------|
+| /NR         | No replace         |
+| /R          | Replace            |
+| /Q          | Quiet              |
+| /MV         | Move file          |
+This command can accept wildcards.
+
+Examples:
+ 
+ 	COPY 8:\*,\*
+ 	COPY 9:TEST,P 10:TEST,S
+ 	COPY 10:TEST,S 11:
+ 
+
+### DATE
+Syntax: DATE [date]
+
+Show and set the current date with the current date format.<br>
+If no parameters it will ask the current date, and if valid will set it.
+
+### DEL
+Syntax: DEL [drive:]filename [/Y]
+
+This command will delete one or more files, if /Y is specified, no confirm will be asked.<br>
+This command can accept wildcards.
+
+### DIR
+Syntax: DIR [drive:][wildcard pattern] [/W/P]
+
+| Code        | Description        |
+|:------------|:-------------------|
+| /W          | Wide format        |
+| /P          | Paged format       |
+| /B          | Show sizes in bytes instead of blocks|
+
+This command will show the directory of a disk according to the wildcard pattern if present.
+
+### ECHO
+Syntax: ECHO on|off|string
+
+Show and set the current echo flag.<br>
+If this flag is set the prompt will be shown and in a batch every executed row will be shown on screen.<br>
+The echo command will show the "string" parameter, if you want to print a non printable character, just insert a $ char and a 3 digit number corresponding to the ASCII code you want to show.<br>
+If you want to show an empty row, just write ECHO.
+
+### EXIT
+Syntax: EXIT [/Y] [/D] [/64]
+
+The flag /D is for invalidate the current installation on the REU.
+the flag /64 for go directly to 64 mode.
+This command will exit TheShell and reboot the computer, if /Y is specified, no confirmation will be asked.
+
+### IF
+Syntax: IF %VARNAME% ==|<>|<|>|NOT EXISTS|EXISTS COMMAND
+
+This command will execute the command if the condition is true.<br>
+No spaces before and after the operator is needed.
+
+	IF %RC%==00 ECHO OK
+
+### HISTORY
+Syntax: HISTORY
+
+This command will show the last 10 commands.
+
+### LABEL
+Syntax: LABEL drive: label
+
+This command will relabel a disk.
+
+### PAUSE
+Syntax: PAUSE
+
+This command will simply wait for a key pressed.
+
 ### PROMPT
 Syntax: PROMPT [string]
 
@@ -223,160 +344,10 @@ The prompt will be se to the string passed as parameter, or to "$p$g" if no para
 | $H          | Backspace character                                     |
 | $v          | TheShell version                                        |
 
-### VER
-Syntax: VER
-
-Show the version of TheShell.
-
-### DATE
-Syntax: DATE [date]
-
-Show and set the current date with the current date format.<br>
-If no parameters it will ask the current date, and if valid will set it.
-
-### TIME
-Syntax: TIME [time]
-
-Show and set the current time (HH:MM.SS).<br>
-If no parameters it will ask the current date, and if valid will set it.
-
-### BREAK
-Syntax: BREAK [on|off]
-
-Show and set the current break flag.<br>
-With this flag on the check for a RUNSTOP/CTRLC will be more sensitive.<br>
-If this flag is on, an IRQ handler is installed, and you should be able to abort any operation and go back to TheShell by using the combination RUN/STOP + RESTORE.<br> This is not active when in basic.
-
-### ECHO
-Syntax: ECHO on|off|string
-
-Show and set the current echo flag.<br>
-If this flag is set the prompt will be shown and in a batch every executed row will be shown on screen.<br>
-The echo command will show the "string" parameter, if you want to print a non printable character, just insert a $ char and a 3 digit number corresponding to the ASCII code you want to show.<br>
-If you want to show an empty row, just write ECHO.
-
-### COPY
-Syntax: COPY [drive:]sourcefile drive:[destinationfile][,filetype] [/NR/R/Q/MV]
-
-Copy files from a source disk to a destination disk.
-
-| Code        | Description        |
-|:------------|:-------------------|
-| /NR         | No replace         |
-| /R          | Replace            |
-| /Q          | Quiet              |
-| /MV         | Move file          |
-This command can accept wildcards.
-
-Examples:
- 
- 	COPY 8:\*,\*
- 	COPY 9:TEST,P 10:TEST,S
- 	COPY 10:TEST,S 11:
- 
-
-### SET
-Syntax: SET VARNAME=[VARVALUE]
-
-This command will set an environment variable.<br>
-If the value of the variable contains any space, all the parameter must be inside double quotes, so if you want to 
-set a variable name "VarName" with a value of "Test value", you should write:
-
-	SET "VarName=Test value"
-
-If you want to refer to any defined variable you should specify a the variable name enclosed inside a '%', so for example,
-if you want to copy the file defined in the variable "VarName" to the drive 9:, you should write:
-
-	COPY %VarName% 9:
-
-If you want to clear a variable, you can write something like this:
-
-	SET VarName=
-
-There's some system environment variables that are readonly.
-
- 	RC       	Is the return code of the last command;
-	CD			Is the current drive;
-	COLS		Is the number of columns of the current display;
-	SPEED		Is the current cpu speed;
-	VMODE		Is the current video display (VDC or VIC);
- 	COUNTRY 	Is the current country code;
-  	DENY		Is the current Deny option;
-   	ALLOW		Is the current Allow option;
-    CONFIRMALL	Is the current All confirm option;
-
-With no parameters, it will show all the defined variabiles.
-
-### IF
-Syntax: IF %VARNAME% ==|<>|<|>|NOT EXISTS|EXISTS COMMAND
-
-This command will execute the command if the condition is true.<br>
-No spaces before and after the operator is needed.
-
-	IF %RC%==00 ECHO OK
-
-### HISTORY
-Syntax: HISTORY
-
-This command will show the last 10 commands.
-
-### CLS
-Syntax: CLS
-
-This command will clear the screen.
-
-### STATUS
-Syntax: STATUS drive:
-
-This command will show the status of the selected drive.
-
-### PAUSE
-Syntax: PAUSE
-
-This command will simply wait for a key pressed.
-
-### DEL
-Syntax: DEL [drive:]filename [/Y]
-
-This command will delete one or more files, if /Y is specified, no confirm will be asked.<br>
-This command can accept wildcards.
-
-### TYPE
-Syntax: TYPE [drive:]filename
-
-This command will show the contents of a file.
-
 ### RENAME
 Syntax: RENAME oldfilename newfilename
 
 This command will rename a file.
-
-### DIR
-Syntax: DIR [drive:][wildcard pattern] [/W/P]
-
-| Code        | Description        |
-|:------------|:-------------------|
-| /W          | Wide format        |
-| /P          | Paged format       |
-| /B          | Show sizes in bytes instead of blocks|
-
-This command will show the directory of a disk according to the wildcard pattern if present.
-
-### CMD
-Syntax: CMD drive: drivecommand
-
-This command is used to send a command to a drive.
-
-### BASIC
-Syntax: BASIC
-
-This command will take the user to the basic prompt.<br>
-If you want to goback to TheShell, simply write GOBACK or GO + ShiftB.
-
-### VOL
-Syntax: VOL [drive:]
-
-This command will show the label of the disk in the specified drive.
 
 ### RESIDENT
 Syntax: RESIDENT [ADD|REMOVE [drive:]filename [/F/NE/NH/O:xxxx/B:xxx/N:NAME/T:TYPE]]
@@ -416,39 +387,68 @@ For example to install the help file resident on the REU, you can use a batch fi
  	alias "help=help /b:%bank%"
   	echo Type 'help' for help index.
  
-### ALIAS
-Syntax: ALIAS ALIAS=COMMAND
+### SET
+Syntax: SET VARNAME=[VARVALUE]
 
-This command make an alias for a command string.  
-Keep in mind, that if the alias name or the command has a space inside, all the alias parameter must be enclosed inside double quotes.  
-So, for example, if I want to set an alias named "This is an alias" for a command like "dir 8:*,s", I should write at the prompt:
+This command will set an environment variable.<br>
+If the value of the variable contains any space, all the parameter must be inside double quotes, so if you want to 
+set a variable name "VarName" with a value of "Test value", you should write:
 
-	alias "This is an alias=dir 8:*,s"
+	SET "VarName=Test value"
 
-You can also write:
+If you want to refer to any defined variable you should specify a the variable name enclosed inside a '%', so for example,
+if you want to copy the file defined in the variable "VarName" to the drive 9:, you should write:
 
-	alias "pdir=dir /p"
-	alias "wdir=pdir /w"
-	alias wpdir=wdir
-	
-and then for example at the prompt with "wpdir 8:", you should see a wide paged directory listing of the drive 8:.
+	COPY %VarName% 9:
+
+If you want to clear a variable, you can write something like this:
+
+	SET VarName=
+
+There's some system environment variables that are readonly.
+
+ 	RC       	Is the return code of the last command;
+	CD			Is the current drive;
+	COLS		Is the number of columns of the current display;
+	SPEED		Is the current cpu speed;
+	VMODE		Is the current video display (VDC or VIC);
+ 	COUNTRY 	Is the current country code;
+  	DENY		Is the current Deny option;
+   	ALLOW		Is the current Allow option;
+    CONFIRMALL	Is the current All confirm option;
+
+With no parameters, it will show all the defined variabiles.
+
+### STATUS
+Syntax: STATUS drive:
+
+This command will show the status of the selected drive.
+
+### TIME
+Syntax: TIME [time]
+
+Show and set the current time (HH:MM.SS).<br>
+If no parameters it will ask the current date, and if valid will set it.
+
+### TYPE
+Syntax: TYPE [drive:]filename
+
+This command will show the contents of a file.
+
+### VER
+Syntax: VER
+
+Show the version of TheShell.
+
+### VOL
+Syntax: VOL [drive:]
+
+This command will show the label of the disk in the specified drive.
 
 ### WHY
 Syntax: WHY
 
 This command will show the last error code set by the last executed command.
-
-### EXIT
-Syntax: EXIT [/Y] [/D] [/64]
-
-The flag /D is for invalidate the current installation on the REU.
-the flag /64 for go directly to 64 mode.
-This command will exit TheShell and reboot the computer, if /Y is specified, no confirmation will be asked.
-
-### LABEL
-Syntax: LABEL drive: label
-
-This command will relabel a disk.
 
 ## EXTERNAL COMMANDS
 ### ASK
