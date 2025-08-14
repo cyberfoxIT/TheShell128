@@ -406,6 +406,8 @@ The /N: flag will specify the name under it will be recognized by TheShell.
 
 The /T: flag is usefull if you want to load a file that is not an executable one, for example the HELP command can use the HELP.HLP file resident on the REU.
 
+If there were no errors during the load, you should find a new variable called "bank" that specify the bank where the file as been loaded.
+
 For example to install the help file resident on the REU, you can use a batch file like this:
 
 	@echo off
