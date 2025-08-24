@@ -256,11 +256,13 @@ This command can accept wildcards.
 
 Examples:
  
- 	COPY 8:\*,\*
+ 	COPY 8:*,*
+  	- Will copy every file from the drive 8: to the current drive.
  	COPY 9:TEST,P 10:TEST,S
+  	- Will copy the "prg" file "test" from drive 9 to a "seq" file "test" on drive 10:.
  	COPY 10:TEST,S 11:
+  	- Will copy a file "seq" file named "test" to the drive 11: with the same name and type.
  
-
 ### DATE
 Syntax: DATE [date]
 
