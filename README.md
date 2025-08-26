@@ -228,8 +228,10 @@ If you want to goback to TheShell, simply write GOBACK or GO + ShiftB.
 Syntax: BREAK [on|off]
 
 Show and set the current break flag.<br>
-With this flag on the check for a RUNSTOP/CTRLC will be more sensitive.<br>
-If this flag is on, an IRQ handler is installed, and you should be able to abort any operation and go back to TheShell by using the combination RUN/STOP + RESTORE.<br> This is not active when in basic.
+With this flag on, the check for a RUNSTOP/CTRLC will be more sensitive.<br>
+If this flag is on, an IRQ handler is installed, and you should be able to abort any operation and go back to TheShell by using the combination RUN/STOP + RESTORE.<br>
+When the IRQ is triggered, all channels are closed, but for example, the active connection on the U2 will remain active, ence, always try to abort the current operation with CTRL+C or RUN/STOP before using this method.<br>
+In BASIC the combination RUN/STOP+RESTORE work as normal.
 
 ### CLS
 Syntax: CLS
