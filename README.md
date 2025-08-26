@@ -109,8 +109,8 @@ If you want to skip this file, press the Commodore key while booting.
 
 After loaded all the files, it will look for a file named "autostart" following this order:
  - Look for a pgm file called autostart,p on the REU (Only on warm start);<br>
- - Look for a seq file called autostart,s on the REU (Only on warm start);<br>
- - Look for a seq file called autostart,s on the current drive (Only on cold start);<br>
+ - Look for a seq file called autostart,s (batch file) on the REU (Only on warm start);<br>
+ - Look for a seq file called autostart,s (batch file) on the current drive (Only on cold start);<br>
 
 So, for example if you make a seq or a prg file resident with the name "autostart", it will be executed on every warm boot.
 
