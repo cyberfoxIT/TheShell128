@@ -158,10 +158,10 @@ named "Test file" from the drive 8: to drive 9:, you can write:
 
 	COPY "8:Test file" 9:
 
-Or you want to run a program on the current drive named "Test Program", you should write:
+The syntax for execute a file is [drive:]filename, so if you want to run a program on the current drive named "Test Program", you should write:
 
 	"TEST PROGRAM"
-	  
+
 If a typed command is not recognized as an internal or resident one, the shell will try to load it from the current drive.
 
 You can specify the type of the file you're referring by adding:
