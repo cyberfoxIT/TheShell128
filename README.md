@@ -6,7 +6,7 @@ An MS-DOS like command line interface for the Commodore 128 equipped with at lea
 
 USE THIS PROGRAM AT YOUR OWN RISK!
 
-I'LL NOT BE RESPONSIBLE FOR ANY KIND OF DAMAGE THAT COULD BE CAUSED BY THIS PGM.
+I WILL NOT BE RESPONSIBLE FOR ANY DAMAGE CAUSED BY THIS PROGRAM.
 
 ## What "TheShell128" can do.
  - Can use 40 cols on VIC or 40/80 cols on VDC;
@@ -30,7 +30,7 @@ I'LL NOT BE RESPONSIBLE FOR ANY KIND OF DAMAGE THAT COULD BE CAUSED BY THIS PGM.
  - Can get, set or sync the internal clock with the one on the UltimateII cart;
  - Can go back to the shell once gone to basic;
  - Can use any bank of the REU;
- - Can use a (provided) ROM to make it available on cold boot without any disk with an U2 cart
+ - Can use a (provided) ROM to make it available on cold boot without any disk with a U2 cart
 
 ## What "TheShell128" can't do.
 Everything not listed in this document! :)
@@ -82,7 +82,7 @@ The program "warmboot.prg" will be loaded and executed automatically, and if it 
 it will resume from there, otherwise will load the "loader.prg" for a cold boot.
 The boot process by default will install the shell in the first 4 banks of the REU.
 
-In the beginning of a the cold boot process, TheShell will look for a SEQ file named "autoconfig.cfg".
+At the beginning of the cold boot process, TheShell will look for a SEQ file named "autoconfig.cfg".
 If found, it will be loaded and parsed for some customization properties.
 If you want to skip this file, press the Commodore key while booting.
 
@@ -107,7 +107,7 @@ If you want to skip this file, press the Commodore key while booting.
 
 (This customizations will be resumed on every warm boot.)
 
-After loaded all the files, it will look for a file named "autostart" following this order:
+After loading all the files, it will look for a file named "autostart" in the following order:
  - Look for a pgm file called autostart,p on the REU (Only on warm start);<br>
  - Look for a seq file called autostart,s (batch file) on the REU (Only on warm start);<br>
  - Look for a seq file called autostart,s (batch file) on the current drive (Only on cold start);<br>
@@ -149,7 +149,7 @@ Here you can use one of the following internal commands:
 | [VOL](#VOL)		   | Show the name of a disk;                                                       |
 | [WHY](#WHY)		   | Show an explanation for the last error code, if set;                           |
 
-Because of the way the flag are handled, if you want to pass a parameter to a command that begin with the char '/' (like a flag), you've to double the char '/'.<br>So for example, if you want to call the command 'TEST' with a parameter like '/TEST/FILE' you should write something like:
+Because of the way flags are handled, if you want to pass a parameter that begins with the character '/' (like a flag), you must double the character '/'.<br>So for example, if you want to call the command 'TEST' with a parameter like '/TEST/FILE' you should write something like:
 
 	TEST //TEST/FILE
 
@@ -192,7 +192,7 @@ So, for example, you can customize the characters from 'A' to 'Z' and 'a' to 'z'
  	CONFIG FONT LOAD 437.3.CHR A 97-25 65
  
 This command extract the font from an MSDOS .cpi file, load the 25 characters definitions starting from the ASCII 65 from the file specified and use them for redefine the characters from PETSCII 193 on the Alphanumeric charset.<br>
-Once you're happy with the your customization, you can save the whole charsets in a file and load it when you need with something like this:<br>
+Once you're happy with your customization, you can save the entire charset into a file and load it when needed with something like this:<br>
 
 	CONFIG FONT SAVE CUSTOM.FONT
 	CONFIG FONT LOAD CUSTOM.FONT
@@ -330,7 +330,7 @@ This command will simply wait for a key pressed.
 Syntax: PROMPT [string]
 
 This command is used to customize the prompt of the shell.
-The prompt will be se to the string passed as parameter, or to "$p$g" if no parameters.
+The prompt will be set to the string passed as a parameter, or to "$p$g" if no parameters are provided.
 
 | Code        | Description                                             |
 |:------------|:--------------------------------------------------------|
@@ -379,7 +379,7 @@ The /NE flag is self explanatory, and it will load the file only if not already 
 
 The /N: flag will specify the name under it will be recognized by TheShell.
 
-The /T: flag is usefull if you want to load a file that is not an executable one, for example the HELP command can use the HELP.HLP file resident on the REU.
+The /T: flag is useful if you want to load a file that is not executable; for example, the HELP command can use the HELP.HLP file resident on the REU.
 
 If there were no errors during the load, you should find a new variable called "bank" that specify the bank where the file as been loaded.
 
@@ -409,7 +409,7 @@ If you want to clear a variable, you can write something like this:
 
 	SET VarName=
 
-There's some system environment variables that are readonly.
+There's some system environment variables that are read-only.
 
  	RC       	Is the return code of the last command;
 	CD			Is the current drive;
@@ -421,7 +421,7 @@ There's some system environment variables that are readonly.
    	ALLOW		Is the current Allow option;
     CONFIRMALL	Is the current All confirm option;
 
-With no parameters, it will show all the defined variabiles.
+With no parameters, it will show all the defined variables.
 
 ### STATUS
 Syntax: STATUS drive:
@@ -513,7 +513,7 @@ This command is used to configure various things.
 |COLOR               |color code &nbsp;&nbsp;&nbsp;&nbsp;|Will change the current text color|
 |BACKGROUND          |color code     |Will change the background color  |
 |BORDER              |color code     |Will change the border color      |
-|FONT                |LOAD/SAVE font name |Will load the font for the VDC display<br>Because of how the charset are organized, you can specify a range of chars to be loaded and where to load them in the VDC.<br>For example, if you want to load only the chars from 69 to 100 and load them on the vdc from the char 32, you write:<br>CONFIG FONT LOAD TEST.CHR 69-100 32    |
+|FONT                |LOAD/SAVE font name |Will load the font for the VDC display<br>Because of how the charsets are organized, you can specify a range of characters to load and where to load them in the VDC.<br>For example, if you want to load only the chars from 69 to 100 and load them on the vdc from the char 32, you write:<br>CONFIG FONT LOAD TEST.CHR 69-100 32    |
 |LANG                |msg file       |Will change the current defined messages|
 |CFG                 |SAVE           |Will save a configuration file    |
 |                    |LOAD           |Will load a configuration file    |
@@ -538,7 +538,7 @@ This command is used to create an image or a floppy disk.<br>
 The source parameters can be an image file or a disk drive.<br>
 If the source is a disk drive the destination must be an image file.<br>
 If the source is an image file the destination must be a disk drive.<br>
-The image type is extracted from the image file name, so the must end with a .d64/.d71/.d81
+The image type is extracted from the image file name, so the filename must end with .d64/.d71/.d81.
 
 ### EXAMCPI
 Syntax: EXAMCPI cpifile
@@ -549,7 +549,7 @@ As far as I've seen there are more variants of this file, so if the CPI file is 
 ### EXTRACTFONT
 Syntax: EXTRACTFONT cpifile codepage fontnumber
 
-This command is used for extract a specific font for a specific codepage from an MSDOS cpi file.<br>
+This command is used to extract a specific font for a specific codepage from an MSDOS .cpi file.<br>
 If the command find the codepage and the fontnumber in the cpi file, it will create a ".CHR" file with the specified font data.
 
 ### FORMAT
@@ -561,7 +561,7 @@ The /SS flag is used for format a single sided floppy on a 1571.<br>
 The /NS flag is used to prevent the format to allocate the boot sectors, by default the sectors are reserved.<br>
 The /Y flag is used to make the format starts immediately.<br>
 The /Q flag is used to make a quick format that will clean only the allocation table.<br>
-The /S flag is used to prevent the program to output anything on screen.<br>
+The /S flag prevents the program from outputting anything on screen.<br>
 
 ### HELP
 Syntax: HELP string /B:bankId|/f:fileName
@@ -648,10 +648,9 @@ This command is used to transfer files from a pc using the ethernet interface of
 ### U2TELNET
 Syntax: U2TELNET hostname port [/VARLIST:varname^varvalue^varname^varvalue...][/ROWS:rows][/COLS:cols][/DEBUG][/Q]
 
-This is a simple telnet client, if specified a varlist, they will be sent to the server.<br>
-The client will present itself as an ansi terminal.<br>
-The /ROWS and /COLS will specify the rows and columns of the terminal, if not specifed the client will set it according to the current screen size.<br>
-The /DEBUG will print some debug informations that can be usefull in case of issues.
+This is a simple telnet client, it will present itself as an ansi terminal.<br>.
+If a varlist is specified, it will be sent to the server, the /ROWS and /COLS will specify the rows and columns of the terminal, if not specified, the client will set it according to the current screen size.<br>
+The /DEBUG will print some debug information that can be useful in case of issues.
 
 ### U2FTP
 Syntax: U2FTP hostname port [/Q]
@@ -666,8 +665,8 @@ Once the ROM is installed, you can:
  - Power on or reset the C128 while pressing a key from 1 to 4 (corresponding to drive 8 to 11) for a cold boot of TheShell from the selected drive.
  - Power on or reset the C128 while pressing the shift key to prevent a warm boot to TheShell if present on the REU.
 
-If you power on or reset the C128 with TheShell loaded on the REU without pressing any of the above key, the ROM will take you directly to TheShell prompt, preserving all the aliases and vars.<br><br>
+If you power on or reset the C128 with TheShell loaded on the REU without pressing any of the above keys, the ROM will take you directly to the TheShell prompt, preserving all aliases and variables.<br><br>
 
-If you've an Ultimate II cart, you can, once loaded TheShell on the REU, save the REU content, and set the image just saved for preload.
+If you have an Ultimate II cart, once TheShell is loaded on the REU you can save the REU content and set the saved image for preload.
 This will make TheShell available even after a cold boot.<br>
-You could notice a small delay between the power on and the start of TheShell, this is because (I believe) the preloaded image of the REU take some times to be available.<br>
+You may notice a small delay between power-on and the start of TheShell. This is because the preloaded image on the REU takes some time to become available.<br>
