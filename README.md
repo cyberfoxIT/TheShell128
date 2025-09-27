@@ -39,8 +39,8 @@ Everything not listed in this document! :)
 | File                       | Description                                        |
 |:---------------------------|:---------------------------------------------------|
 | MSGS.CFG                   | Default English messages                           |
-| MSGS-IT.CFG                | Full English messages example (including external commands)|
-| MSGS-EN.CFG                | Full Italian messages example (including external commands)|
+| MSGS-EN.CFG                | Full English messages example (including external commands)|
+| MSGS-IT.CFG                | Full Italian messages example (including external commands)|
 | HELP.HLP                   | Online help                                        |
 | LOADER                     | Cold boot loader                                   |
 | WARMBOOT                   | Warm boot loader                                   |
