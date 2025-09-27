@@ -40,7 +40,7 @@ Everything not listed in this document! :)
 |:---------------------------|:---------------------------------------------------|
 | MSGS.CFG                   | Default English messages                           |
 | MSGS-IT.CFG                | Full English messages example (including external commands)|
-| MSGS-IT.CFG                | Full Italian messages example (including external commands)|
+| MSGS-EN.CFG                | Full Italian messages example (including external commands)|
 | HELP.HLP                   | Online help                                        |
 | LOADER                     | Cold boot loader                                   |
 | WARMBOOT                   | Warm boot loader                                   |
@@ -74,7 +74,7 @@ Everything not listed in this document! :)
 
 ## Messages translations
 Every external command contains a fall back english label for every message it use, so if there's no translation for a specified message, an english message will be shown instead.<br>
-The messages used by TheShell (ence for the internal commands messages) does not has a fallback label, so they must be loaded at boot time.
+The messages used by TheShell (hence for the internal commands messages) does not has a fallback label, so they must be loaded at boot time.
 
 ## How it work
 The shell system disk is an autoboot disk, so you can simply insert it into the drive 8: and turn on the c128. 
