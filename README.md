@@ -162,7 +162,9 @@ The syntax for execute a file is [drive:]filename, so if you want to run a progr
 
 	"TEST PROGRAM"
 
-If a typed command is not recognized as an internal or resident one, the shell will try to load it from the current drive.
+If a typed command is not recognized as an internal or resident one, the shell will try to load it from the current drive.<bR>
+If the loaded program have the option to go back to basic, TheShell should be able to detect it and go back to the TheShell prompt.<br>
+If you want to disable this feature just set a variable named "NOEOP" to whatever value you prefer, if you want to renable it just remove the variable with "SET NOEOP="
 
 You can specify the type of the file you're referring by adding:
  
